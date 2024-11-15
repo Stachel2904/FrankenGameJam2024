@@ -11,8 +11,17 @@ config_version=5
 [application]
 
 config/name="DJOctoBubble"
+run/main_scene="res://hubLevel.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/image="res://Assets/Textures/Flashscreen/BBS_Visitenkarte_Back.png"
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=1920
+window/size/mode=3
+window/stretch/mode="canvas_items"
 
 [editor]
 
