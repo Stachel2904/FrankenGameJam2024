@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmw7q26y8kpq7"]
+[gd_scene load_steps=3 format=3 uid="uid://bmw7q26y8kpq7"]
 
 [ext_resource type="PackedScene" uid="uid://b15si7e6dq1gh" path="res://Assets/Character/Character.tscn" id="1_m37bf"]
+[ext_resource type="Script" path="res://Scripts/battleManager.gd" id="1_o1ju0"]
 
 [node name="mainTestVinnie" type="Node2D"]
+script = ExtResource("1_o1ju0")
 
-[node name="CharacterArea2D" parent="." instance=ExtResource("1_m37bf")]
-position = Vector2(224, 164)
+[node name="Player" parent="." instance=ExtResource("1_m37bf")]
+position = Vector2(294, 570)
+
+[node name="Enemy" parent="." instance=ExtResource("1_m37bf")]
+position = Vector2(1488, 577)

@@ -7,13 +7,28 @@ var player_beat : Array = []
 # TODO: get enemy beat from enemy
 # ["UP","UP", "DOWN", "DOWN", "LEFT", "RIGHT", "LEFT", "RIGHT", "B", "A"]
 var enemy_beat : Array = ["UP","UP", "DOWN", "DOWN", "LEFT", "RIGHT", "LEFT", "RIGHT"]
+#var enemy_dmg : int = -10
 
 # Maximum length of beat matched to enemy beat
 var max_beat_length : int = enemy_beat.size()
 
+@onready var player : Area2D = $Player
+@onready var enemy : Area2D = $Enemy
+
+@export var playerHP : int = 100
+@export var enemyHP : int = 100
+@export var playerDmg : int = -10
+@export var enemyDmg : int = -20
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("Enemy: ", enemy_beat)
+	player.setHealth(playerHP)
+	enemy.setHealth(enemyHP)
+	print("Player Health: ", player.getCurrentHealth())
+	print("Enemy Health: ", enemy.getCurrentHealth())
+	player.setAttackDamage(playerDmg)
+	enemy.setAttackDamage(enemyDmg)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_up"):
@@ -40,8 +55,12 @@ func checkBeat():
 	print("Player: ", player_beat)
 	if player_beat == enemy_beat:
 		print("PERFECT!")
+		enemy.modifyHealth(player.getCurrentAttackDamage())
 	else:
 		print("MISS")
+		player.modifyHealth(enemy.getCurrentAttackDamage())
+	print("Enemy Health: ", enemy.getCurrentHealth())
+	print("Player Health: ", player.getCurrentHealth())
 	resetBeat()
 		
 # reset player array

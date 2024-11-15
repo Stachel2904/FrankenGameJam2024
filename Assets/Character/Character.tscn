@@ -44,7 +44,7 @@ metadata/_edit_group_ = true
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_8hu7h")
 animation = &"walk"
-frame_progress = 0.599957
+frame_progress = 0.593946
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
