@@ -12,7 +12,7 @@ var max_beat_length : int = enemy_beat.size()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(enemy_beat)
+	print("Enemy: ", enemy_beat)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,17 +28,21 @@ func _process(delta: float) -> void:
 	elif Input.is_action_just_pressed("ui_accept"):
 		checkBeat()
 
+# add input to array
 func addToBeat(action: String):
 	if player_beat.size() < enemy_beat.size():
 		player_beat.append(action)
+		print(action)
 
+# check if array matches enemy array
 func checkBeat():
-	print(player_beat)
+	print("Player: ", player_beat)
 	if player_beat == enemy_beat:
 		print("PERFECT!")
 	else:
 		print("MISS")
 	resetBeat()
 		
+# reset player array
 func resetBeat():
 	player_beat.clear()
