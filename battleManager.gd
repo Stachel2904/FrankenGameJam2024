@@ -4,6 +4,7 @@ extends Node2D
 var player_beat : Array = []
 
 # TESTING: Target Sequence as example to test Gameplay
+# TODO: get enemy beat from enemy
 # ["UP","UP", "DOWN", "DOWN", "LEFT", "RIGHT", "LEFT", "RIGHT", "B", "A"]
 var enemy_beat : Array = ["UP","UP", "DOWN", "DOWN", "LEFT", "RIGHT", "LEFT", "RIGHT"]
 
@@ -14,8 +15,6 @@ var max_beat_length : int = enemy_beat.size()
 func _ready() -> void:
 	print("Enemy: ", enemy_beat)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_up"):
 		addToBeat("UP")
@@ -29,12 +28,14 @@ func _process(delta: float) -> void:
 		checkBeat()
 
 # add input to array
+# TODO: Make it visual like HellDivers2, White Arrows become highlighted for each correct beat press
 func addToBeat(action: String):
 	if player_beat.size() < enemy_beat.size():
 		player_beat.append(action)
 		print(action)
 
 # check if array matches enemy array
+# TODO: check if it matches with BeatSlider
 func checkBeat():
 	print("Player: ", player_beat)
 	if player_beat == enemy_beat:
@@ -46,3 +47,7 @@ func checkBeat():
 # reset player array
 func resetBeat():
 	player_beat.clear()
+
+# TODO: checkBeatSlider - add good/nice/perfect if inside area2d, add miss if outside area2d
+func checkBeatSlider():
+	pass
