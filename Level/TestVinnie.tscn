@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmw7q26y8kpq7"]
+
+[ext_resource type="PackedScene" uid="uid://b15si7e6dq1gh" path="res://Assets/Character/Character.tscn" id="1_m37bf"]
+
+[node name="mainTestVinnie" type="Node2D"]
+
+[node name="CharacterArea2D" parent="." instance=ExtResource("1_m37bf")]
+position = Vector2(224, 164)
