@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name Character
+
 var characterHealth : int = 100
 
 var attackDamage : int = 10

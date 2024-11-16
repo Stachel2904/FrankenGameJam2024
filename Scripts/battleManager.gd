@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name BattleManager
+
 # Player Input Array for rhythm game aspect
 var player_beat : Array = []
 
@@ -12,8 +14,8 @@ var enemy_beat : Array = ["UP","UP", "DOWN", "DOWN", "LEFT", "RIGHT", "LEFT", "R
 # Maximum length of beat matched to enemy beat
 var max_beat_length : int = enemy_beat.size()
 
-@onready var player : Area2D = $Player
-@onready var enemy : Area2D = $Enemy
+@onready var player : Character = $Player
+@onready var enemy : Character = $Enemy
 
 @export var playerHP : int = 100
 @export var enemyHP : int = 100
