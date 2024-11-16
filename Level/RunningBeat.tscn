@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://xxk1xn4y2y67"]
+
+[ext_resource type="Script" path="res://Scripts/runningBeat.gd" id="1_7koht"]
+[ext_resource type="Texture2D" uid="uid://b2kcilc4le1ua" path="res://Assets/Textures/white_pixel.png" id="1_l6air"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ripi4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_l6air")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wa2fa"]
+size = Vector2(1.00391, 1.00391)
+
+[node name="RunningBeat" type="Area2D"]
+script = ExtResource("1_7koht")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(128, 128)
+sprite_frames = SubResource("SpriteFrames_ripi4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(128, 128)
+shape = SubResource("RectangleShape2D_wa2fa")

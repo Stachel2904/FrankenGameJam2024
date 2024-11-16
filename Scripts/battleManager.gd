@@ -5,6 +5,7 @@ class_name BattleManager
 @onready var player : Character = $Player
 @onready var enemy : Character = $Enemy
 @onready var battleNotes : BattleNotes = $CanvasLayer/BattlesNotes
+@onready var classicDayText = "res://Assets/Music/Beat Map/Classic_Day.txt"
 
 
 # Player Input Array for rhythm game aspect
@@ -23,9 +24,24 @@ var _noteSuccess : bool = false
 # Maximum length of beat matched to enemy beat
 var max_beat_length : int = enemyBeat.size()
 
+# BEAT DINGSDABUNGSTA
+#@export var beatTolerance : float = 0.2
+@onready var beatSong : AudioStreamPlayer = $LevelMusic
+# array of beats (in seconds)
+#@export var beatTimings : Array[float] = [0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0]
+@onready var beatTiming : Timer = $BeatTimer
+var bpm : int = 120
+var spb : float = 60.0 / bpm
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	beatTiming.set_wait_time(spb)
+	
+	
+	read_beatmap(classicDayText)
+	print("/n")
+	
 	print("Enemy: ", enemyBeat)
 	player.setHealth(playerHP)
 	enemy.setHealth(enemyHP)
@@ -119,3 +135,26 @@ func _handleNoteInput():
 		elif Input.is_action_just_pressed("ui_right"):
 			_addToBeat("RIGHT")
 			_checkNote()
+
+func read_beatmap(file_path):
+	var file = FileAccess.open(file_path, FileAccess.READ)
+	var content = file.get_as_text()
+	print(content)
+	#if file.file_exists(file_path):
+		#file.open(file_path, File.READ)
+		#var beatmap = []
+		#while not file.eof_reached():
+			#var line = file.get_line()
+			#var parts = line.split("\t")
+			#if parts.size() == 3:
+				#var time = parts[0].to_float()
+				#var pitch = parts[1].to_float()
+				#var label = parts[2]
+				#beatmap.append({"time": time, "pitch": pitch, "label": label})
+				#file.close()
+			#return beatmap
+		#return null
+
+
+func _on_beat_timer_timeout() -> void:
+	print("BOOM!!!!!")
