@@ -1,7 +1,171 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6e6h8o2eq11j"]
+[gd_scene load_steps=38 format=3 uid="uid://b6e6h8o2eq11j"]
 
+[ext_resource type="Script" path="res://Scripts/hub_level.gd" id="1_1m54h"]
 [ext_resource type="Texture2D" uid="uid://chlojcj6w0e8k" path="res://Assets/Textures/Level-Textures/DJOB_DjConsole.png" id="1_bhbcg"]
 [ext_resource type="Texture2D" uid="uid://b2kcilc4le1ua" path="res://Assets/Textures/white_pixel.png" id="2_52xw1"]
+[ext_resource type="Texture2D" uid="uid://ducko51f04hk7" path="res://Assets/Textures/Background/DJOB_Club_BG.png" id="2_mmw0i"]
+[ext_resource type="Texture2D" uid="uid://cnjmfqw72gt2p" path="res://Assets/Textures/Background/DJOB_Club_Discoball.png" id="3_l5oit"]
+[ext_resource type="Texture2D" uid="uid://rvij8fm7ptgm" path="res://Assets/Textures/Level-Textures/DJOB_BadBubble.png" id="4_phxu1"]
+[ext_resource type="Script" path="res://Scripts/bubbleRenderer.gd" id="5_ey2o3"]
+[ext_resource type="Texture2D" uid="uid://bwn73vj4rintk" path="res://Assets/Textures/black_pixel.png" id="5_scwcc"]
+[ext_resource type="Texture2D" uid="uid://cl73b6swvpg5p" path="res://Assets/Textures/gray_pixel.png" id="6_n15fr"]
+[ext_resource type="Texture2D" uid="uid://depywlib5biw" path="res://Assets/Textures/Level-Textures/DJOB_select.png" id="7_lkij0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mbqy"]
+atlas = ExtResource("2_mmw0i")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ri65k"]
+atlas = ExtResource("2_mmw0i")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s706l"]
+atlas = ExtResource("2_mmw0i")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15qf5"]
+atlas = ExtResource("2_mmw0i")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1n7b"]
+atlas = ExtResource("2_mmw0i")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxbix"]
+atlas = ExtResource("2_mmw0i")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkg77"]
+atlas = ExtResource("2_mmw0i")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pb0v6"]
+atlas = ExtResource("2_mmw0i")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_383ot"]
+atlas = ExtResource("2_mmw0i")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b58t7"]
+atlas = ExtResource("2_mmw0i")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ue1gk"]
+atlas = ExtResource("2_mmw0i")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bh642"]
+atlas = ExtResource("2_mmw0i")
+region = Rect2(384, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bx60x"]
+atlas = ExtResource("2_mmw0i")
+region = Rect2(0, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cjmo"]
+atlas = ExtResource("2_mmw0i")
+region = Rect2(128, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vejpm"]
+atlas = ExtResource("2_mmw0i")
+region = Rect2(256, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnuef"]
+atlas = ExtResource("2_mmw0i")
+region = Rect2(384, 384, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dxbj5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mbqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ri65k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s706l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15qf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1n7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxbix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkg77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pb0v6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_383ot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b58t7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ue1gk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bh642")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bx60x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cjmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vejpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnuef")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjvwf"]
+atlas = ExtResource("4_phxu1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7f5q"]
+atlas = ExtResource("4_phxu1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mywbk"]
+atlas = ExtResource("4_phxu1")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol4u4"]
+atlas = ExtResource("4_phxu1")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jcvpe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjvwf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7f5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mywbk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ol4u4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ynv8o"]
 atlas = ExtResource("1_bhbcg")
@@ -36,67 +200,359 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 2.0
 }]
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_1m54h")
 
-[node name="DJ_Console" type="AnimatedSprite2D" parent="."]
-scale = Vector2(8, 8)
+[node name="CenterWrapper" type="CenterContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="AnimatedSprite2D" parent="CenterWrapper"]
+scale = Vector2(20, 10)
+sprite_frames = SubResource("SpriteFrames_dxbj5")
+autoplay = "default"
+
+[node name="DjobClubDiscoball" type="Sprite2D" parent="CenterWrapper/Background"]
+scale = Vector2(0.5, 1)
+texture = ExtResource("3_l5oit")
+
+[node name="Bubbles" type="Control" parent="CenterWrapper/Background"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Crowd1" type="Control" parent="CenterWrapper/Background/Bubbles"]
+anchors_preset = 0
+
+[node name="Bubble1" type="AnimatedSprite2D" parent="CenterWrapper/Background/Bubbles/Crowd1"]
+position = Vector2(-55, 20)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_jcvpe")
+autoplay = "default"
+script = ExtResource("5_ey2o3")
+
+[node name="Bubble2" type="AnimatedSprite2D" parent="CenterWrapper/Background/Bubbles/Crowd1"]
+position = Vector2(-40, 20)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_jcvpe")
+autoplay = "default"
+script = ExtResource("5_ey2o3")
+
+[node name="Bubble3" type="AnimatedSprite2D" parent="CenterWrapper/Background/Bubbles/Crowd1"]
+position = Vector2(-25, 20)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_jcvpe")
+autoplay = "default"
+script = ExtResource("5_ey2o3")
+
+[node name="Crowd2" type="Control" parent="CenterWrapper/Background/Bubbles"]
+anchors_preset = 0
+offset_top = 10.0
+offset_bottom = 10.0
+
+[node name="Bubble1" type="AnimatedSprite2D" parent="CenterWrapper/Background/Bubbles/Crowd2"]
+position = Vector2(-60, 20)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_jcvpe")
+autoplay = "default"
+script = ExtResource("5_ey2o3")
+
+[node name="Bubble2" type="AnimatedSprite2D" parent="CenterWrapper/Background/Bubbles/Crowd2"]
+position = Vector2(-45, 20)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_jcvpe")
+autoplay = "default"
+script = ExtResource("5_ey2o3")
+
+[node name="Bubble3" type="AnimatedSprite2D" parent="CenterWrapper/Background/Bubbles/Crowd2"]
+position = Vector2(-30, 20)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_jcvpe")
+autoplay = "default"
+script = ExtResource("5_ey2o3")
+
+[node name="Bubble4" type="AnimatedSprite2D" parent="CenterWrapper/Background/Bubbles/Crowd2"]
+position = Vector2(-15, 20)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_jcvpe")
+autoplay = "default"
+script = ExtResource("5_ey2o3")
+
+[node name="Crowd3" type="Control" parent="CenterWrapper/Background/Bubbles"]
+anchors_preset = 0
+offset_top = 20.0
+offset_bottom = 20.0
+
+[node name="Bubble1" type="AnimatedSprite2D" parent="CenterWrapper/Background/Bubbles/Crowd3"]
+position = Vector2(-65, 20)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_jcvpe")
+autoplay = "default"
+script = ExtResource("5_ey2o3")
+
+[node name="Bubble2" type="AnimatedSprite2D" parent="CenterWrapper/Background/Bubbles/Crowd3"]
+position = Vector2(-50, 20)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_jcvpe")
+autoplay = "default"
+script = ExtResource("5_ey2o3")
+
+[node name="Bubble3" type="AnimatedSprite2D" parent="CenterWrapper/Background/Bubbles/Crowd3"]
+position = Vector2(-35, 20)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_jcvpe")
+autoplay = "default"
+script = ExtResource("5_ey2o3")
+
+[node name="Bubble4" type="AnimatedSprite2D" parent="CenterWrapper/Background/Bubbles/Crowd3"]
+position = Vector2(-20, 20)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_jcvpe")
+autoplay = "default"
+script = ExtResource("5_ey2o3")
+
+[node name="Crowd4" type="Control" parent="CenterWrapper/Background/Bubbles"]
+anchors_preset = 0
+
+[node name="Bubble1" type="AnimatedSprite2D" parent="CenterWrapper/Background/Bubbles/Crowd4"]
+position = Vector2(25, 20)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_jcvpe")
+autoplay = "default"
+script = ExtResource("5_ey2o3")
+
+[node name="Bubble2" type="AnimatedSprite2D" parent="CenterWrapper/Background/Bubbles/Crowd4"]
+position = Vector2(40, 20)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_jcvpe")
+autoplay = "default"
+script = ExtResource("5_ey2o3")
+
+[node name="Bubble3" type="AnimatedSprite2D" parent="CenterWrapper/Background/Bubbles/Crowd4"]
+position = Vector2(55, 20)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_jcvpe")
+autoplay = "default"
+script = ExtResource("5_ey2o3")
+
+[node name="Crowd5" type="Control" parent="CenterWrapper/Background/Bubbles"]
+anchors_preset = 0
+offset_top = 10.0
+offset_bottom = 10.0
+
+[node name="Bubble1" type="AnimatedSprite2D" parent="CenterWrapper/Background/Bubbles/Crowd5"]
+position = Vector2(30, 20)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_jcvpe")
+autoplay = "default"
+script = ExtResource("5_ey2o3")
+
+[node name="Bubble2" type="AnimatedSprite2D" parent="CenterWrapper/Background/Bubbles/Crowd5"]
+position = Vector2(45, 20)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_jcvpe")
+autoplay = "default"
+script = ExtResource("5_ey2o3")
+
+[node name="Bubble3" type="AnimatedSprite2D" parent="CenterWrapper/Background/Bubbles/Crowd5"]
+position = Vector2(60, 20)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_jcvpe")
+autoplay = "default"
+script = ExtResource("5_ey2o3")
+
+[node name="Bubble4" type="AnimatedSprite2D" parent="CenterWrapper/Background/Bubbles/Crowd5"]
+position = Vector2(15, 20)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_jcvpe")
+autoplay = "default"
+script = ExtResource("5_ey2o3")
+
+[node name="Crowd6" type="Control" parent="CenterWrapper/Background/Bubbles"]
+anchors_preset = 0
+offset_top = 20.0
+offset_bottom = 20.0
+
+[node name="Bubble1" type="AnimatedSprite2D" parent="CenterWrapper/Background/Bubbles/Crowd6"]
+position = Vector2(35, 20)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_jcvpe")
+autoplay = "default"
+script = ExtResource("5_ey2o3")
+
+[node name="Bubble2" type="AnimatedSprite2D" parent="CenterWrapper/Background/Bubbles/Crowd6"]
+position = Vector2(50, 20)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_jcvpe")
+autoplay = "default"
+script = ExtResource("5_ey2o3")
+
+[node name="Bubble3" type="AnimatedSprite2D" parent="CenterWrapper/Background/Bubbles/Crowd6"]
+position = Vector2(65, 20)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_jcvpe")
+autoplay = "default"
+script = ExtResource("5_ey2o3")
+
+[node name="Bubble4" type="AnimatedSprite2D" parent="CenterWrapper/Background/Bubbles/Crowd6"]
+position = Vector2(20, 20)
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_jcvpe")
+autoplay = "default"
+script = ExtResource("5_ey2o3")
+
+[node name="ConsoleStand" type="Sprite2D" parent="CenterWrapper"]
+position = Vector2(0, 351.11)
+scale = Vector2(680, 500)
+texture = ExtResource("5_scwcc")
+
+[node name="DJ_Console" type="AnimatedSprite2D" parent="CenterWrapper"]
+position = Vector2(0, 440)
+scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_2hhex")
 animation = &"idle"
+autoplay = "idle"
 frame_progress = 0.686204
 
-[node name="Level_Btn1" type="Sprite2D" parent="DJ_Console"]
-position = Vector2(-15, -4)
-scale = Vector2(4, 4)
-texture = ExtResource("2_52xw1")
+[node name="Level_Btn1" type="TextureButton" parent="CenterWrapper/DJ_Console"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -38.0
+offset_right = -45.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_52xw1")
+texture_pressed = ExtResource("5_scwcc")
+texture_hover = ExtResource("6_n15fr")
+stretch_mode = 0
 
-[node name="Level_Btn2" type="Sprite2D" parent="DJ_Console"]
-position = Vector2(-9, -4)
-scale = Vector2(4, 4)
-texture = ExtResource("2_52xw1")
+[node name="Level_Btn2" type="TextureButton" parent="CenterWrapper/DJ_Console"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -38.0
+offset_right = -39.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_52xw1")
+texture_pressed = ExtResource("5_scwcc")
+texture_hover = ExtResource("6_n15fr")
+stretch_mode = 0
 
-[node name="Level_Btn3" type="Sprite2D" parent="DJ_Console"]
-position = Vector2(-3, -4)
-scale = Vector2(4, 4)
-texture = ExtResource("2_52xw1")
+[node name="Level_Btn3" type="TextureButton" parent="CenterWrapper/DJ_Console"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -38.0
+offset_right = -33.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_52xw1")
+texture_pressed = ExtResource("5_scwcc")
+texture_hover = ExtResource("6_n15fr")
+stretch_mode = 0
 
-[node name="Level_Btn4" type="Sprite2D" parent="DJ_Console"]
-position = Vector2(3, -4)
-scale = Vector2(4, 4)
-texture = ExtResource("2_52xw1")
+[node name="Level_Btn4" type="TextureButton" parent="CenterWrapper/DJ_Console"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -38.0
+offset_right = -27.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_52xw1")
+texture_pressed = ExtResource("5_scwcc")
+texture_hover = ExtResource("6_n15fr")
+stretch_mode = 0
 
-[node name="Level_Btn5" type="Sprite2D" parent="DJ_Console"]
-position = Vector2(9, -4)
-scale = Vector2(4, 4)
-texture = ExtResource("2_52xw1")
+[node name="Level_Btn5" type="TextureButton" parent="CenterWrapper/DJ_Console"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -38.0
+offset_right = -21.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_52xw1")
+texture_pressed = ExtResource("5_scwcc")
+texture_hover = ExtResource("6_n15fr")
+stretch_mode = 0
 
-[node name="Level_Btn6" type="Sprite2D" parent="DJ_Console"]
-position = Vector2(15, -4)
-scale = Vector2(4, 4)
-texture = ExtResource("2_52xw1")
+[node name="Level_Btn6" type="TextureButton" parent="CenterWrapper/DJ_Console"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -38.0
+offset_right = -15.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_52xw1")
+texture_pressed = ExtResource("5_scwcc")
+texture_hover = ExtResource("6_n15fr")
+stretch_mode = 0
 
-[node name="Level_State1" type="Sprite2D" parent="DJ_Console"]
+[node name="Level_State1" type="Sprite2D" parent="CenterWrapper/DJ_Console"]
 position = Vector2(-7.5, -7.5)
 texture = ExtResource("2_52xw1")
 
-[node name="Level_State2" type="Sprite2D" parent="DJ_Console"]
+[node name="Level_State2" type="Sprite2D" parent="CenterWrapper/DJ_Console"]
 position = Vector2(-4.5, -7.5)
 texture = ExtResource("2_52xw1")
 
-[node name="Level_State3" type="Sprite2D" parent="DJ_Console"]
+[node name="Level_State3" type="Sprite2D" parent="CenterWrapper/DJ_Console"]
 position = Vector2(-1.5, -7.5)
 texture = ExtResource("2_52xw1")
 
-[node name="Level_State4" type="Sprite2D" parent="DJ_Console"]
+[node name="Level_State4" type="Sprite2D" parent="CenterWrapper/DJ_Console"]
 position = Vector2(1.5, -7.5)
 texture = ExtResource("2_52xw1")
 
-[node name="Level_State5" type="Sprite2D" parent="DJ_Console"]
+[node name="Level_State5" type="Sprite2D" parent="CenterWrapper/DJ_Console"]
 position = Vector2(4.5, -7.5)
 texture = ExtResource("2_52xw1")
 
-[node name="Level_State6" type="Sprite2D" parent="DJ_Console"]
+[node name="Level_State6" type="Sprite2D" parent="CenterWrapper/DJ_Console"]
 position = Vector2(7.5, -7.5)
 texture = ExtResource("2_52xw1")
+
+[node name="Tentacle" type="Sprite2D" parent="CenterWrapper/DJ_Console"]
+position = Vector2(0, 10)
+texture = ExtResource("7_lkij0")
