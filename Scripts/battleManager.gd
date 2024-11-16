@@ -20,6 +20,7 @@ var _playerBeat : Array = []
 
 var _currentBeat : int = 0
 var _noteSuccess : bool = false
+var _isInBoomArea : bool = false
 
 # Maximum length of beat matched to enemy beat
 var max_beat_length : int = enemyBeat.size()
@@ -29,19 +30,12 @@ var max_beat_length : int = enemyBeat.size()
 @onready var beatSong : AudioStreamPlayer = $LevelMusic
 # array of beats (in seconds)
 #@export var beatTimings : Array[float] = [0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0]
-@onready var beatTiming : Timer = $BeatTimer
 var bpm : int = 120
 var spb : float = 60.0 / bpm
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	beatTiming.set_wait_time(spb)
-	
-	
-	read_beatmap(classicDayText)
-	print("/n")
-	
 	print("Enemy: ", enemyBeat)
 	player.setHealth(playerHP)
 	enemy.setHealth(enemyHP)
@@ -54,8 +48,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	_handleNoteInput()
 	
-	if Input.is_action_just_pressed("ui_accept"):
-		_checkBeat()
+	#if Input.is_action_just_pressed("ui_accept"):
+		#_checkBeat()
 	
 	
 # add input to array
@@ -86,17 +80,17 @@ func _checkNote():
 	print("Player: ", _playerBeat)
 	
 # TODO: check if it matches with BeatSlider
-func _checkBeat():
-	if _playerBeat == enemyBeat:
-		print("PERFECT!")
-		enemy.modifyHealth(player.getCurrentAttackDamage())
-	else:
-		print("MISS")
-		player.modifyHealth(enemy.getCurrentAttackDamage())
-	print("Enemy Health: ", enemy.getCurrentHealth())
-	print("Player Health: ", player.getCurrentHealth())
-	
-	_resetBeat()
+#func _checkBeat():
+	#if _playerBeat == enemyBeat:
+		#print("PERFECT!")
+		#enemy.modifyHealth(player.getCurrentAttackDamage())
+	#else:
+		#print("MISS")
+		#player.modifyHealth(enemy.getCurrentAttackDamage())
+	#print("Enemy Health: ", enemy.getCurrentHealth())
+	#print("Player Health: ", player.getCurrentHealth())
+	#
+	#_resetBeat()
 
 # reset player array
 func _resetBeat():
@@ -109,17 +103,21 @@ func checkBeatSlider():
 	pass
 
 func _compareBeatWithInput(input : String):
-	if _playerBeat[_currentBeat] == input:
+	if _playerBeat[_currentBeat] == input and _isInBoomArea:
 		battleNotes.setNotesState(_currentBeat, "pressed")
 		_currentBeat += 1
 		if _currentBeat > enemyBeat.size() - 1:
+			enemy.modifyHealth(player.getCurrentAttackDamage())
 			_noteSuccess = true
 			print("YOU DID IT!")
-		print("Correct: ", _currentBeat)
+			print("Enemy HP: ", enemy.getCurrentHealth())
+		#print("Correct: ", _currentBeat)
 	else:
+		player.modifyHealth(enemy.getCurrentAttackDamage())
 		_currentBeat = 0
 		_resetBeat()
-		print("False: ", _currentBeat)
+		#print("False: ", _currentBeat)
+		print("Player HP: ", player.getCurrentHealth())
 
 func _handleNoteInput():
 	if not _noteSuccess:
@@ -136,25 +134,15 @@ func _handleNoteInput():
 			_addToBeat("RIGHT")
 			_checkNote()
 
-func read_beatmap(file_path):
-	var file = FileAccess.open(file_path, FileAccess.READ)
-	var content = file.get_as_text()
-	print(content)
-	#if file.file_exists(file_path):
-		#file.open(file_path, File.READ)
-		#var beatmap = []
-		#while not file.eof_reached():
-			#var line = file.get_line()
-			#var parts = line.split("\t")
-			#if parts.size() == 3:
-				#var time = parts[0].to_float()
-				#var pitch = parts[1].to_float()
-				#var label = parts[2]
-				#beatmap.append({"time": time, "pitch": pitch, "label": label})
-				#file.close()
-			#return beatmap
-		#return null
+#func read_beatmap(file_path):
+	#var file = FileAccess.open(file_path, FileAccess.READ)
+	#var content = file.get_as_text()
+	#print(content)
 
+func _on_boom_area_area_entered(area: Area2D) -> void:
+	_isInBoomArea = true
+	#print("It's inside me!")
 
-func _on_beat_timer_timeout() -> void:
-	print("BOOM!!!!!")
+func _on_boom_area_area_exited(area: Area2D) -> void:
+	_isInBoomArea = false
+	#print("It left me! sadge")

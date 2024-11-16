@@ -1,7 +1,7 @@
 extends Area2D
 
 var speed : float = 300.0
-@export var time : float = 0.25
+@export var time : float = 0.46875/2
 
 var destination : int
 
@@ -58,7 +58,7 @@ func _ready() -> void:
 func move_to(target: Vector2, duration: float, callback: String) -> void:
 	# Create new tween for movement
 	var tween = create_tween()
-	tween.tween_property(self, "position", target, duration)
+	tween.tween_property(self, "position", target, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	
 	tween.tween_callback(Callable(self,callback))
 	
