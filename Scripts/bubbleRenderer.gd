@@ -36,4 +36,4 @@ func _process(delta: float) -> void:
 
 func _getNewDuration() -> float:
 	var rng = RandomNumberGenerator.new()
-	return rng.randf_range(1, _maxCycleDuration) * _rhythm
+	return rng.randi_range(1, _maxCycleDuration) * _rhythm
