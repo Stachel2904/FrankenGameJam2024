@@ -16,6 +16,7 @@ var max_beat_length : int = enemy_beat.size()
 
 @onready var player : Character = $Player
 @onready var enemy : Character = $Enemy
+@onready var battleNotes : BattleNotes = $CanvasLayer/BattlesNotes
 
 @export var playerHP : int = 100
 @export var enemyHP : int = 100
@@ -31,6 +32,7 @@ func _ready() -> void:
 	print("Enemy Health: ", enemy.getCurrentHealth())
 	player.setAttackDamage(playerDmg)
 	enemy.setAttackDamage(enemyDmg)
+	battleNotes.initBattleNoteContainer(enemy_beat)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_up"):

@@ -2,9 +2,9 @@ extends Area2D
 
 class_name Character
 
-var characterHealth : int = 100
+var _characterHealth : int = 100
 
-var attackDamage : int = 10
+var _attackDamage : int = 10
 
 
 # Called when the node enters the scene tree for the first time.
@@ -19,30 +19,30 @@ func _process(delta: float) -> void:
 
 # Modifies current characterHealth and returns new characterHealth
 func modifyHealth(healthModifier: int) -> int:
-	characterHealth += healthModifier
-	if (characterHealth < 0):
-		characterHealth = 0
-	return characterHealth
+	_characterHealth += healthModifier
+	if (_characterHealth < 0):
+		_characterHealth = 0
+	return _characterHealth
 
 # Returns current characterHealth
 func getCurrentHealth() -> int:
-	return characterHealth
+	return _characterHealth
 
 # Set current characterHealth
 func setHealth(newHealth : int) -> int:
-	characterHealth = newHealth
+	_characterHealth = newHealth
 	return newHealth
 
 # Returns current attackDamage
 func getCurrentAttackDamage() -> int:
-	return attackDamage;
+	return _attackDamage;
 
 # Set current attackDamage
 func setAttackDamage(newAttackDamage : int) -> int:
-	attackDamage = newAttackDamage
-	return attackDamage
+	_attackDamage = newAttackDamage
+	return _attackDamage
 
 # Modifies current attackDamage and returns new attackDamage
 func modifyAttackDamage(attackDamageModifier: int) -> int:
-	attackDamage += attackDamageModifier
-	return attackDamage
+	_attackDamage += attackDamageModifier
+	return _attackDamage

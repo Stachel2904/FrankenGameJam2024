@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://ca2f6abihpnnl"]
+[gd_scene load_steps=2 format=3 uid="uid://ca2f6abihpnnl"]
+
+[ext_resource type="Script" path="res://Scripts/battleNotes.gd" id="1_ugu3x"]
 
 [node name="BattlesNotes" type="Control"]
 layout_mode = 3
@@ -7,15 +9,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ugu3x")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Panel"]
+[node name="BattleNoteContainer" type="HBoxContainer" parent="."]
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 256.0
+offset_bottom = 192.0
+theme_override_constants/separation = 156

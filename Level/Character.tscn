@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://b15si7e6dq1gh"]
 
-[ext_resource type="Script" path="res://Scripts/CharacterScripts/character.gd" id="1_h662m"]
+[ext_resource type="Script" path="res://Scripts/character.gd" id="1_h662m"]
 [ext_resource type="Texture2D" uid="uid://cpusvc17w2oxm" path="res://Assets/dodge_the_creeps_2d_assets/art/playerGrey_walk1.png" id="1_i78ba"]
 [ext_resource type="Texture2D" uid="uid://7ujjs1vw8yq7" path="res://Assets/dodge_the_creeps_2d_assets/art/playerGrey_walk2.png" id="2_xvcjc"]
 [ext_resource type="Texture2D" uid="uid://cthddmjexvvhh" path="res://Assets/dodge_the_creeps_2d_assets/art/playerGrey_up1.png" id="4_tklur"]
@@ -41,7 +41,6 @@ script = ExtResource("1_h662m")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_8hu7h")
 animation = &"walk"
 frame_progress = 0.593946
