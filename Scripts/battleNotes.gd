@@ -9,12 +9,16 @@ class_name BattleNotes
 @onready var _arrowNoteRIGHT = preload("res://Level/ArrowNoteRIGHT.tscn")
 
 
-var enemy_beat : Array = ["UP","UP", "DOWN", "DOWN", "LEFT", "RIGHT", "LEFT", "RIGHT"]
+#var enemy_beat : Array = ["UP","UP", "DOWN", "DOWN", "LEFT", "RIGHT", "LEFT", "RIGHT"]
 
 var arrowRotation : float = 90.0
 
 var _battleNoteArray : Array = []
 var number : int = 3
+
+var _isInit : bool = false
+
+var _isFalse : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -46,3 +50,21 @@ func initBattleNoteContainer(enemyBeat : Array):
 		
 		_battleNoteArray.append(instance)
 		_battleNoteContainer.add_child(instance)
+	_isInit = true
+	
+func setNotesState(index : int, state : String):
+	if _isInit:
+		_battleNoteArray[index].setNoteState(state)
+
+func resetStates(state : String):
+	if _isInit:
+		for note in _battleNoteArray:
+			note.setNoteState(state)
+		if state == "false":
+			_isFalse = true
+
+func getIsFalse() -> bool:
+	return _isFalse
+
+func resetIsFalse():
+	_isFalse = false

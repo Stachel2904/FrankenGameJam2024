@@ -54,7 +54,10 @@ func _addToBeat(action: String):
 
 # check if array matches enemy array
 func _checkNote():
-	var array_size = _enemyBeat.size()
+	if battleNotes.getIsFalse():
+		battleNotes.resetIsFalse()
+		battleNotes.resetStates("default")
+	
 	if not _playerBeat.is_empty():
 		match _enemyBeat[_currentBeat]:
 			"UP":
@@ -83,7 +86,9 @@ func _checkBeat():
 
 # reset player array
 func _resetBeat():
-	_playerBeat.clear()
+	if not _noteSuccess:
+		battleNotes.resetStates("false")
+		_playerBeat.clear()
 
 # TODO: checkBeatSlider - add good/nice/perfect if inside area2d, add miss if outside area2d
 func checkBeatSlider():
@@ -91,6 +96,7 @@ func checkBeatSlider():
 
 func _compareBeatWithInput(input : String):
 	if _playerBeat[_currentBeat] == input:
+		battleNotes.setNotesState(_currentBeat, "pressed")
 		_currentBeat += 1
 		if _currentBeat > _enemyBeat.size() - 1:
 			_noteSuccess = true

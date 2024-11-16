@@ -1,9 +1,6 @@
 extends Control
 
-class_name ArrowNote
-
-@onready var text : TextureRect = $TextureRect
-
+@onready var anim = $AnimatedSprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,5 +12,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func rotateArrowNote(degrees : float):
-	text.set_rotation_degrees(degrees)
+#func rotateArrowNote(degrees : float):
+	#text.set_rotation_degrees(degrees)
+
+func setNoteState(state : String):
+	match state:
+		"default":
+			anim.play("default")
+		"false":
+			anim.play("false")
+		"pressed":
+			anim.play("pressed")
