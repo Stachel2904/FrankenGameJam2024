@@ -1,0 +1,112 @@
+extends Node
+
+var enemyBeats = [
+	["UP", "DOWN", "LEFT", "RIGHT"],
+	["LEFT", "RIGHT", "UP", "UP", "DOWN"],
+	["DOWN", "DOWN", "LEFT", "UP", "RIGHT", "LEFT"],
+	["RIGHT", "UP", "UP", "LEFT", "DOWN", "DOWN", "LEFT"],
+	["UP", "RIGHT", "LEFT", "DOWN", "UP", "UP", "RIGHT", "LEFT"],
+	["DOWN", "UP", "DOWN", "LEFT", "RIGHT", "LEFT", "UP", "RIGHT"],
+	["UP", "UP", "DOWN", "LEFT", "RIGHT", "UP", "DOWN", "LEFT", "RIGHT"],
+	["RIGHT", "LEFT", "UP", "DOWN", "UP", "LEFT", "DOWN", "UP", "RIGHT"],
+	["LEFT", "DOWN", "UP", "RIGHT", "LEFT", "RIGHT", "UP", "DOWN", "DOWN", "UP"],
+	["DOWN", "RIGHT", "UP", "UP", "DOWN", "LEFT", "UP", "RIGHT", "LEFT", "DOWN"],
+	["RIGHT", "UP", "LEFT", "RIGHT", "DOWN", "DOWN", "LEFT", "UP", "DOWN", "UP"],
+	["DOWN", "LEFT", "RIGHT", "UP", "UP", "DOWN", "LEFT", "RIGHT", "UP", "DOWN"],
+	["UP", "LEFT", "DOWN", "RIGHT", "UP", "DOWN", "LEFT", "UP"],
+	["RIGHT", "UP", "DOWN", "LEFT", "RIGHT", "LEFT", "DOWN", "UP"],
+	["DOWN", "RIGHT", "UP", "LEFT", "DOWN", "UP", "LEFT"],
+	["UP", "LEFT", "RIGHT", "DOWN", "LEFT", "DOWN", "UP", "RIGHT", "UP"],
+	["DOWN", "LEFT", "UP", "RIGHT", "DOWN", "LEFT", "RIGHT", "UP"],
+	["UP", "DOWN", "RIGHT", "LEFT", "UP", "UP", "LEFT", "DOWN", "RIGHT", "UP"],
+	["LEFT", "RIGHT", "UP", "DOWN", "LEFT", "DOWN"],
+	["UP", "LEFT", "DOWN", "RIGHT", "UP", "DOWN", "RIGHT", "UP", "LEFT"],
+	["DOWN", "RIGHT", "LEFT", "UP", "DOWN", "LEFT", "RIGHT"],
+	["UP", "UP", "DOWN", "LEFT", "RIGHT", "LEFT", "UP", "DOWN", "RIGHT"],
+	["DOWN", "UP", "RIGHT", "LEFT", "UP", "DOWN", "RIGHT"],
+	["LEFT", "RIGHT", "UP", "DOWN", "UP", "LEFT", "DOWN", "RIGHT"],
+	["UP", "DOWN", "LEFT", "RIGHT", "UP", "UP", "DOWN", "LEFT"],
+	["DOWN", "LEFT", "UP", "RIGHT", "DOWN", "UP", "DOWN", "RIGHT", "LEFT"],
+	["LEFT", "RIGHT", "DOWN", "UP", "LEFT", "UP", "DOWN", "RIGHT"],
+	["DOWN", "UP", "LEFT", "RIGHT", "UP", "DOWN"],
+	["UP", "LEFT", "RIGHT", "DOWN", "UP", "DOWN", "LEFT", "UP", "DOWN"],
+	["RIGHT", "LEFT", "UP", "DOWN", "UP", "LEFT", "DOWN", "UP"],
+	["LEFT", "DOWN", "UP", "DOWN", "RIGHT", "UP", "LEFT", "DOWN"],
+	["DOWN", "UP", "DOWN", "LEFT", "RIGHT", "LEFT", "UP"],
+	["UP", "DOWN", "LEFT", "RIGHT", "UP", "DOWN", "RIGHT", "UP", "DOWN"],
+	["LEFT", "RIGHT", "UP", "DOWN", "LEFT", "DOWN", "RIGHT", "UP"],
+	["DOWN", "LEFT", "UP", "RIGHT", "DOWN", "UP", "LEFT", "DOWN"],
+	["UP", "LEFT", "DOWN", "UP", "RIGHT", "LEFT", "DOWN", "UP"],
+	["RIGHT", "DOWN", "LEFT", "UP", "DOWN", "UP", "LEFT"],
+	["DOWN", "RIGHT", "UP", "LEFT", "RIGHT", "DOWN", "UP"],
+	["LEFT", "UP", "DOWN", "RIGHT", "DOWN", "LEFT"]
+]
+
+var currentLevel = "One"
+
+
+var levelDict = {
+		"One" : {
+			"Name": "Level 1", 
+			"Music": "PATH", 
+			"PlayerHP": 100,
+			"EnemyHP": 100,
+			"PlayerDMG": -10,
+			"EnemyDMG": -20,
+			"Completed": false
+		},
+		"Two" : {
+			"Name": "Level 2", 
+			"Music": "PATH", 
+			"PlayerHP": 100,
+			"EnemyHP": 100,
+			"PlayerDMG": -10,
+			"EnemyDMG": -20,
+			"Completed": false
+		},
+		"Three" : {
+			"Name": "Level 3", 
+			"Music": "PATH", 
+			"PlayerHP": 100,
+			"EnemyHP": 100,
+			"PlayerDMG": -10,
+			"EnemyDMG": -20,
+			"Completed": false
+		},
+		"Four" : {
+			"Name": "Level 4", 
+			"Music": "PATH", 
+			"PlayerHP": 100,
+			"EnemyHP": 100,
+			"PlayerDMG": -10,
+			"EnemyDMG": -20,
+			"Completed": false
+		},
+		"Five" : {
+			"Name": "Level 5", 
+			"Music": "PATH", 
+			"PlayerHP": 100,
+			"EnemyHP": 100,
+			"PlayerDMG": -10,
+			"EnemyDMG": -20,
+			"Completed": false
+		},
+		"Six" : {
+			"Name": "Level 6", 
+			"Music": "PATH", 
+			"PlayerHP": 100,
+			"EnemyHP": 100,
+			"PlayerDMG": -10,
+			"EnemyDMG": -20,
+			"Completed": false
+		}
+	}
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
