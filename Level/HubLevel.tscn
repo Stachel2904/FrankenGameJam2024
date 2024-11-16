@@ -1,3 +1,108 @@
-[gd_scene format=3 uid="uid://b6e6h8o2eq11j"]
+[gd_scene load_steps=8 format=3 uid="uid://b6e6h8o2eq11j"]
+
+[ext_resource type="Texture2D" uid="uid://chlojcj6w0e8k" path="res://Assets/Textures/Level-Textures/DJOB_DjConsole.png" id="1_bhbcg"]
+[ext_resource type="Texture2D" uid="uid://b2kcilc4le1ua" path="res://Assets/Textures/white_pixel.png" id="2_52xw1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynv8o"]
+atlas = ExtResource("1_bhbcg")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pt82"]
+atlas = ExtResource("1_bhbcg")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocdmc"]
+atlas = ExtResource("1_bhbcg")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gns7q"]
+atlas = ExtResource("1_bhbcg")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hhex"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynv8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pt82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocdmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gns7q")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="main" type="Node2D"]
+
+[node name="DJ_Console" type="AnimatedSprite2D" parent="."]
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_2hhex")
+animation = &"idle"
+frame_progress = 0.686204
+
+[node name="Level_Btn1" type="Sprite2D" parent="DJ_Console"]
+position = Vector2(-15, -4)
+scale = Vector2(4, 4)
+texture = ExtResource("2_52xw1")
+
+[node name="Level_Btn2" type="Sprite2D" parent="DJ_Console"]
+position = Vector2(-9, -4)
+scale = Vector2(4, 4)
+texture = ExtResource("2_52xw1")
+
+[node name="Level_Btn3" type="Sprite2D" parent="DJ_Console"]
+position = Vector2(-3, -4)
+scale = Vector2(4, 4)
+texture = ExtResource("2_52xw1")
+
+[node name="Level_Btn4" type="Sprite2D" parent="DJ_Console"]
+position = Vector2(3, -4)
+scale = Vector2(4, 4)
+texture = ExtResource("2_52xw1")
+
+[node name="Level_Btn5" type="Sprite2D" parent="DJ_Console"]
+position = Vector2(9, -4)
+scale = Vector2(4, 4)
+texture = ExtResource("2_52xw1")
+
+[node name="Level_Btn6" type="Sprite2D" parent="DJ_Console"]
+position = Vector2(15, -4)
+scale = Vector2(4, 4)
+texture = ExtResource("2_52xw1")
+
+[node name="Level_State1" type="Sprite2D" parent="DJ_Console"]
+position = Vector2(-7.5, -7.5)
+scale = Vector2(1, 1)
+texture = ExtResource("2_52xw1")
+
+[node name="Level_State2" type="Sprite2D" parent="DJ_Console"]
+position = Vector2(-4.5, -7.5)
+scale = Vector2(1, 1)
+texture = ExtResource("2_52xw1")
+
+[node name="Level_State3" type="Sprite2D" parent="DJ_Console"]
+position = Vector2(-1.5, -7.5)
+scale = Vector2(1, 1)
+texture = ExtResource("2_52xw1")
+
+[node name="Level_State4" type="Sprite2D" parent="DJ_Console"]
+position = Vector2(1.5, -7.5)
+scale = Vector2(1, 1)
+texture = ExtResource("2_52xw1")
+
+[node name="Level_State5" type="Sprite2D" parent="DJ_Console"]
+position = Vector2(4.5, -7.5)
+scale = Vector2(1, 1)
+texture = ExtResource("2_52xw1")
+
+[node name="Level_State6" type="Sprite2D" parent="DJ_Console"]
+position = Vector2(7.5, -7.5)
+scale = Vector2(1, 1)
+texture = ExtResource("2_52xw1")
