@@ -1,7 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://djl7t4mfn2f1q"]
+[gd_scene load_steps=6 format=3 uid="uid://djl7t4mfn2f1q"]
 
 [ext_resource type="Script" path="res://Scripts/arrowNote.gd" id="1_3gpmd"]
-[ext_resource type="Texture2D" uid="uid://blfdxcso2if88" path="res://Assets/Textures/InputNotes/ArrowSample.png" id="2_hjhk0"]
+[ext_resource type="Texture2D" uid="uid://bl40y4g6v33pn" path="res://Assets/Textures/UI-Textures/Arrows/DJOB_Arrow_down.png" id="2_y3j6o"]
+[ext_resource type="Texture2D" uid="uid://cms18obnn6klc" path="res://Assets/Textures/UI-Textures/Arrows/DJOB_Arrow_down_fail.png" id="3_71ype"]
+[ext_resource type="Texture2D" uid="uid://blt0sr5ytc8gn" path="res://Assets/Textures/UI-Textures/Arrows/DJOB_Arrow_down_hit.png" id="4_rrowf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_orrnv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_y3j6o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_71ype")
+}],
+"loop": true,
+"name": &"false",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_rrowf")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
 
 [node name="ArrowNote" type="Control"]
 layout_mode = 3
@@ -14,19 +43,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3gpmd")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 3.14159
-pivot_offset = Vector2(64, 64)
-texture = ExtResource("2_hjhk0")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(64, 64)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_orrnv")

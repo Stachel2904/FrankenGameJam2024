@@ -531,32 +531,26 @@ stretch_mode = 0
 
 [node name="Level_State1" type="Sprite2D" parent="CenterWrapper/DJ_Console"]
 position = Vector2(-7.5, -7.5)
-scale = Vector2(1, 1)
 texture = ExtResource("2_52xw1")
 
 [node name="Level_State2" type="Sprite2D" parent="CenterWrapper/DJ_Console"]
 position = Vector2(-4.5, -7.5)
-scale = Vector2(1, 1)
 texture = ExtResource("2_52xw1")
 
 [node name="Level_State3" type="Sprite2D" parent="CenterWrapper/DJ_Console"]
 position = Vector2(-1.5, -7.5)
-scale = Vector2(1, 1)
 texture = ExtResource("2_52xw1")
 
 [node name="Level_State4" type="Sprite2D" parent="CenterWrapper/DJ_Console"]
 position = Vector2(1.5, -7.5)
-scale = Vector2(1, 1)
 texture = ExtResource("2_52xw1")
 
 [node name="Level_State5" type="Sprite2D" parent="CenterWrapper/DJ_Console"]
 position = Vector2(4.5, -7.5)
-scale = Vector2(1, 1)
 texture = ExtResource("2_52xw1")
 
 [node name="Level_State6" type="Sprite2D" parent="CenterWrapper/DJ_Console"]
 position = Vector2(7.5, -7.5)
-scale = Vector2(1, 1)
 texture = ExtResource("2_52xw1")
 
 [node name="Tentacle" type="Sprite2D" parent="CenterWrapper/DJ_Console"]
