@@ -22,6 +22,8 @@ var _currentStage : int = 0
 
 # BEAT DINGSDABUNGSTA
 @onready var beatSong : AudioStreamPlayer = $LevelMusic
+@onready var hitSFX : AudioStreamPlayer = $HitSound
+@onready var missSFX : AudioStreamPlayer = $MissSound
 
 
 # Called when the node enters the scene tree for the first time.
@@ -91,6 +93,7 @@ func _checkNote():
 # reset player array
 func _failBeat():
 	if not _noteSuccess:
+		missSFX.play()
 		battleNotes.resetStates("false")
 		_playerBeat.clear()
 		if player.getCurrentHealth() == 0:
@@ -121,6 +124,7 @@ func checkBeatSlider():
 
 func _compareBeatWithInput(input : String):
 	if _playerBeat[_currentBeat] == input and _isInBoomArea:
+		hitSFX.play()
 		battleNotes.setNotesState(_currentBeat, "pressed")
 		_currentBeat += 1
 		runningBeat.ChangeJellyColor(Color("AA00FF"))

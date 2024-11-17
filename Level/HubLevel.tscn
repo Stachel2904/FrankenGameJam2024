@@ -674,3 +674,4 @@ visible = false
 [node name="HubMusic" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamPlaylist_erj03")
 autoplay = true
+bus = &"Music"

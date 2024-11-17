@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bmw7q26y8kpq7"]
+[gd_scene load_steps=12 format=3 uid="uid://bmw7q26y8kpq7"]
 
 [ext_resource type="PackedScene" uid="uid://b15si7e6dq1gh" path="res://Level/Character.tscn" id="1_m37bf"]
 [ext_resource type="Script" path="res://Scripts/battleManager.gd" id="1_o1ju0"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://ca2f6abihpnnl" path="res://Level/BattlesNotes.tscn" id="3_r21lb"]
 [ext_resource type="Texture2D" uid="uid://b2kcilc4le1ua" path="res://Assets/Textures/white_pixel.png" id="5_5yf3n"]
 [ext_resource type="PackedScene" uid="uid://deximm67y71x8" path="res://Level/RunningBeat.tscn" id="6_fly1e"]
+[ext_resource type="AudioStream" uid="uid://dktk7aay07y0k" path="res://Assets/SFX/hit3.mp3" id="8_3asnk"]
+[ext_resource type="AudioStream" uid="uid://dmr82oyejsgjk" path="res://Assets/SFX/Miss.wav" id="9_h7mmr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dyukt"]
 animations = [{
@@ -58,6 +60,14 @@ shape = SubResource("RectangleShape2D_goysu")
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 autoplay = true
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_3asnk")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="MissSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_h7mmr")
 
 [connection signal="area_entered" from="BoomArea" to="." method="_on_boom_area_area_entered"]
 [connection signal="area_exited" from="BoomArea" to="." method="_on_boom_area_area_exited"]
