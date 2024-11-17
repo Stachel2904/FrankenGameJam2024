@@ -28,12 +28,18 @@ extends Node2D
 @onready var _consoleRenderer : AnimatedSprite2D = $CenterWrapper/DJ_Console
 @onready var _backgroundRenderer : AnimatedSprite2D = $CenterWrapper/Background
 @onready var _tentacle : Node2D = $CenterWrapper/DJ_Console/Tentacle
+@onready var _exitBtn : Button = $CenterWrapper/Background/DjobClubDiscoball/Button2
+@onready var _creditsBtn : Button = $Button
+@onready var _creditsNode : Node2D = $Credits
 
 @onready var _tentacleTarget : Vector2 = Vector2(0, 10)
 @onready var _tentacleXPositions = [-15, -9, -3, 3, 9, 15]
 
 func _ready() -> void:
 	_refreshRenderStates()
+	
+	_exitBtn.pressed.connect(func() -> void : get_tree().quit(0))
+	_creditsBtn.pressed.connect(func() -> void : _creditsNode.visible = true)
 	
 	for i in _levelButtons.size():
 		var currentLevelButton : BaseButton = _levelButtons[i]
