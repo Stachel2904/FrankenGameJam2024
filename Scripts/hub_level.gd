@@ -40,6 +40,7 @@ var _unmutedPlaylist : Array = [
 @onready var _exitBtn : Button = $CenterWrapper/Background/DjobClubDiscoball/Button2
 @onready var _creditsBtn : Button = $Button
 @onready var _creditsNode : Node2D = $Credits
+@onready var _endingNode : Node2D = $Ending
 
 @onready var _hubMusic : AudioStreamPlayer = $HubMusic
 
@@ -51,7 +52,7 @@ func _ready() -> void:
 	
 	_exitBtn.pressed.connect(func() -> void : get_tree().quit(0))
 	_creditsBtn.pressed.connect(func() -> void : _creditsNode.visible = true)
-	
+		
 	for i in _levelButtons.size():
 		var currentLevelButton : BaseButton = _levelButtons[i]
 		currentLevelButton.mouse_entered.connect(func() -> void: _hoverLevel(i))
@@ -61,12 +62,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if(_tentacle.position.distance_to(_tentacleTarget) > 1):
 		_tentacle.translate((_tentacleTarget - _tentacle.position) * delta * 5)
-	pass
 
 func _isLevelUnlocked(index: int) -> bool:
 	return Global.levelDict[Global.levelNames[index]]["Completed"]
 
 func _refreshRenderStates() -> void:
+	var allLevelCompleted : bool = true
 	for i in _levelButtons.size():
 		var currentLevelButton : TextureButton = _levelButtons[i]
 		var currentLevelState : Sprite2D = _levelStates[i]
@@ -84,6 +85,10 @@ func _refreshRenderStates() -> void:
 			currentLevelButton.modulate = Color(1,0,0)
 			currentLevelState.modulate = Color(1,0,0)
 			currentLevelCrowd.visible = false
+			allLevelCompleted = false
+	
+	if(allLevelCompleted):
+		_endingNode.visible = true
 
 func _hoverLevel(level: int):	
 	_tentacleTarget = Vector2(_tentacleXPositions[level], 10)
