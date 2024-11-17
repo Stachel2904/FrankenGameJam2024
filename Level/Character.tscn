@@ -1,12 +1,17 @@
-[gd_scene load_steps=22 format=3 uid="uid://b15si7e6dq1gh"]
+[gd_scene load_steps=27 format=3 uid="uid://b15si7e6dq1gh"]
 
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_h662m"]
-[ext_resource type="Texture2D" uid="uid://cnjmfqw72gt2p" path="res://Assets/Textures/Background/DJOB_Club_Discoball.png" id="2_f70y1"]
+[ext_resource type="Texture2D" uid="uid://cyyl4hrp2vyqh" path="res://Assets/Textures/Character-Textures/Seah1.png" id="2_0ldpd"]
 [ext_resource type="Texture2D" uid="uid://dn0dmryfbpq3c" path="res://Assets/Textures/Character-Textures/JennyF_1.png" id="3_6uspi"]
+[ext_resource type="Texture2D" uid="uid://dqdhjj5pl1umv" path="res://Assets/Textures/Character-Textures/Seah2.png" id="3_eem0m"]
 [ext_resource type="Texture2D" uid="uid://bong8bcj1eb6e" path="res://Assets/Textures/Character-Textures/JennyF_2.png" id="4_5nvck"]
+[ext_resource type="Texture2D" uid="uid://dy7o1oghavc2x" path="res://Assets/Textures/Character-Textures/Star1.png" id="4_rngrm"]
+[ext_resource type="Texture2D" uid="uid://1de3wlsit32a" path="res://Assets/Textures/Character-Textures/Star2.png" id="5_gqpuk"]
 [ext_resource type="Texture2D" uid="uid://dau42klmnogd5" path="res://Assets/Textures/Character-Textures/JennyF_3.png" id="5_xk0ge"]
+[ext_resource type="Texture2D" uid="uid://bnumyqoxlfbjf" path="res://Assets/Textures/Character-Textures/Star3.png" id="6_brxkq"]
 [ext_resource type="Texture2D" uid="uid://di06beks2i7lt" path="res://Assets/Textures/Character-Textures/JennyF_4.png" id="6_sl1yj"]
 [ext_resource type="Texture2D" uid="uid://cxt8l22660gtw" path="res://Assets/Textures/Character-Textures/Crab2.png" id="7_3l6bp"]
+[ext_resource type="Texture2D" uid="uid://du220mn6ya1qj" path="res://Assets/Textures/Character-Textures/Star4.png" id="7_5g2ug"]
 [ext_resource type="Texture2D" uid="uid://dhnj5chjg6lei" path="res://Assets/Textures/Character-Textures/Ping1.png" id="7_mo5ec"]
 [ext_resource type="Texture2D" uid="uid://d1oxnc5xg06vv" path="res://Assets/Textures/Character-Textures/Ping2.png" id="8_akbxh"]
 [ext_resource type="Texture2D" uid="uid://dcujp6agnhprg" path="res://Assets/Textures/Character-Textures/Crab3.png" id="8_ow2xk"]
@@ -24,7 +29,10 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_f70y1")
+"texture": ExtResource("2_0ldpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_eem0m")
 }],
 "loop": true,
 "name": &"Five",
@@ -32,7 +40,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_f70y1")
+"texture": ExtResource("4_rngrm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gqpuk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_brxkq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5g2ug")
 }],
 "loop": true,
 "name": &"Four",
@@ -122,8 +139,9 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8hu7h")
-animation = &"Three"
+animation = &"Four"
 autoplay = "default"
+frame_progress = 0.448198
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
