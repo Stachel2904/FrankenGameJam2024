@@ -2,10 +2,10 @@ extends Area2D
 
 class_name Character
 
+@onready var _healthBar : ProgressBar = $HealthBar
+
 var _characterHealth : int = 100
-
 var _attackDamage : int = 10
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,6 +22,7 @@ func modifyHealth(healthModifier: int) -> int:
 	_characterHealth += healthModifier
 	if (_characterHealth < 0):
 		_characterHealth = 0
+	_healthBar.value = _characterHealth
 	return _characterHealth
 
 # Returns current characterHealth
@@ -31,6 +32,7 @@ func getCurrentHealth() -> int:
 # Set current characterHealth
 func setHealth(newHealth : int) -> int:
 	_characterHealth = newHealth
+	_healthBar.value = _characterHealth
 	return newHealth
 
 # Returns current attackDamage
