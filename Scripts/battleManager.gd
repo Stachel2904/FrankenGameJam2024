@@ -90,6 +90,8 @@ func _failBeat():
 	if not _noteSuccess:
 		battleNotes.resetStates("false")
 		_playerBeat.clear()
+		if player.getCurrentHealth() == 0:
+			Global.returnToHub()
 		
 func _resetBeat():
 	_enemyBeat = _createNewEnemyBeat()
@@ -103,6 +105,8 @@ func _resetBeat():
 				
 		if _currentStage == 3:
 			print("WE DID IT!")
+			Global.levelDict[Global.currentLevel]["Completed"] = true
+			Global.returnToHub()
 			_currentStage -= 1
 		
 		_changeStage()
@@ -180,3 +184,4 @@ func _changeStage():
 	enemy.setAttackDamage(Global.levelDict[Global.currentLevel]["EnemyDMG"][_currentStage])
 	change_music(Global.levelDict[Global.currentLevel]["Music"][_currentStage])
 	runningBeat.initRunningBeat()
+	

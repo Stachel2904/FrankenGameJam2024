@@ -43,7 +43,7 @@ var enemyBeats = [
 ]
 
 var currentLevel = "One"
-
+var levelNames = ["One", "Two", "Three", "Four", "Five", "Six"]
 
 var levelDict = {
 		"One" : {
@@ -64,7 +64,7 @@ var levelDict = {
 			"BPM": 127,
 			"PlayerHP": 100,
 			"EnemyHP": 100,
-			"PlayerDMG": -10,
+			"PlayerDMG": -50,
 			"EnemyDMG": [-5, -10, -15],
 			"Completed": false,
 			"Background": 0,
@@ -76,7 +76,7 @@ var levelDict = {
 			"BPM": 128,
 			"PlayerHP": 100,
 			"EnemyHP": 100,
-			"PlayerDMG": -10,
+			"PlayerDMG": -50,
 			"EnemyDMG": [-5, -10, -15],
 			"Completed": false,
 			"Background": 0,
@@ -88,7 +88,7 @@ var levelDict = {
 			"BPM": 123,
 			"PlayerHP": 100,
 			"EnemyHP": 100,
-			"PlayerDMG": -10,
+			"PlayerDMG": -50,
 			"EnemyDMG": [-5, -10, -15],
 			"Completed": false,
 			"Background": 0,
@@ -100,7 +100,7 @@ var levelDict = {
 			"BPM": 130,
 			"PlayerHP": 100,
 			"EnemyHP": 100,
-			"PlayerDMG": -10,
+			"PlayerDMG": -50,
 			"EnemyDMG": [-5, -10, -15],
 			"Completed": false,
 			"Background": 0,
@@ -112,7 +112,7 @@ var levelDict = {
 			"BPM": 125,
 			"PlayerHP": 100,
 			"EnemyHP": 100,
-			"PlayerDMG": -10,
+			"PlayerDMG": -50,
 			"EnemyDMG": [-5, -10, -15],
 			"Completed": false,
 			"Background": 0,
@@ -128,3 +128,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func returnToHub():
+	get_tree().change_scene_to_file("res://Level/HubLevel.tscn")

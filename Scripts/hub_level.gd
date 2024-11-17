@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _isLevelUnlocked(index: int) -> bool:
-	return true
+	return Global.levelDict[Global.levelNames[index]]["Completed"]
 
 func _refreshRenderStates() -> void:
 	for i in _levelButtons.size():
@@ -68,3 +68,11 @@ func _hoverLevel(level: int):
 	
 func _selectLevel(level: int):	
 	_tentacleTarget = Vector2(_tentacleXPositions[level], 2)
+	await get_tree().create_timer(0.5).timeout
+	_changeLevel(level)
+	
+func _changeLevel(level: int):
+	print("Level: ", level)
+	Global.currentLevel = Global.levelNames[level]
+
+	get_tree().change_scene_to_file("res://Level/TestVinnie.tscn")
