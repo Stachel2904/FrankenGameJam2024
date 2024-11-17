@@ -1,42 +1,120 @@
-[gd_scene load_steps=9 format=3 uid="uid://b15si7e6dq1gh"]
+[gd_scene load_steps=22 format=3 uid="uid://b15si7e6dq1gh"]
 
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_h662m"]
-[ext_resource type="Texture2D" uid="uid://cpusvc17w2oxm" path="res://Assets/dodge_the_creeps_2d_assets/art/playerGrey_walk1.png" id="1_i78ba"]
-[ext_resource type="Texture2D" uid="uid://7ujjs1vw8yq7" path="res://Assets/dodge_the_creeps_2d_assets/art/playerGrey_walk2.png" id="2_xvcjc"]
-[ext_resource type="Texture2D" uid="uid://cthddmjexvvhh" path="res://Assets/dodge_the_creeps_2d_assets/art/playerGrey_up1.png" id="4_tklur"]
-[ext_resource type="Texture2D" uid="uid://dls3dl0whh1sc" path="res://Assets/dodge_the_creeps_2d_assets/art/playerGrey_up2.png" id="5_lf2ml"]
+[ext_resource type="Texture2D" uid="uid://cnjmfqw72gt2p" path="res://Assets/Textures/Background/DJOB_Club_Discoball.png" id="2_f70y1"]
+[ext_resource type="Texture2D" uid="uid://dn0dmryfbpq3c" path="res://Assets/Textures/Character-Textures/JennyF_1.png" id="3_6uspi"]
+[ext_resource type="Texture2D" uid="uid://bong8bcj1eb6e" path="res://Assets/Textures/Character-Textures/JennyF_2.png" id="4_5nvck"]
+[ext_resource type="Texture2D" uid="uid://dau42klmnogd5" path="res://Assets/Textures/Character-Textures/JennyF_3.png" id="5_xk0ge"]
+[ext_resource type="Texture2D" uid="uid://di06beks2i7lt" path="res://Assets/Textures/Character-Textures/JennyF_4.png" id="6_sl1yj"]
+[ext_resource type="Texture2D" uid="uid://cxt8l22660gtw" path="res://Assets/Textures/Character-Textures/Crab2.png" id="7_3l6bp"]
+[ext_resource type="Texture2D" uid="uid://dhnj5chjg6lei" path="res://Assets/Textures/Character-Textures/Ping1.png" id="7_mo5ec"]
+[ext_resource type="Texture2D" uid="uid://d1oxnc5xg06vv" path="res://Assets/Textures/Character-Textures/Ping2.png" id="8_akbxh"]
+[ext_resource type="Texture2D" uid="uid://dcujp6agnhprg" path="res://Assets/Textures/Character-Textures/Crab3.png" id="8_ow2xk"]
+[ext_resource type="Texture2D" uid="uid://dwxtbfn6qvfj4" path="res://Assets/Textures/Character-Textures/Crab4.png" id="9_1up4y"]
+[ext_resource type="Texture2D" uid="uid://c00xfbdq3o41e" path="res://Assets/Textures/Character-Textures/Ping3.png" id="9_df0rg"]
+[ext_resource type="Texture2D" uid="uid://qp42crmhaoer" path="res://Assets/Textures/Character-Textures/Ping4.png" id="10_dd6n0"]
+[ext_resource type="Texture2D" uid="uid://boa7x52pba3mt" path="res://Assets/Textures/Character-Textures/Crab5.png" id="10_ib0ek"]
+[ext_resource type="Texture2D" uid="uid://r52p5ipe40jw" path="res://Assets/Textures/Character-Textures/Scorp1.png" id="11_1mtd0"]
+[ext_resource type="Texture2D" uid="uid://ddp3ah5wlffkr" path="res://Assets/Textures/Character-Textures/Scorp2.png" id="12_wk747"]
+[ext_resource type="Texture2D" uid="uid://hw1c4ygtf8cw" path="res://Assets/Textures/Character-Textures/DJ_Octo_F1.png" id="13_aj2kg"]
+[ext_resource type="Texture2D" uid="uid://d1u6wyo5o5yve" path="res://Assets/Textures/Character-Textures/DJ_Octo_F2.png" id="14_bdahh"]
+[ext_resource type="Texture2D" uid="uid://b2kcilc4le1ua" path="res://Assets/Textures/white_pixel.png" id="15_yft8p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8hu7h"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_i78ba")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_xvcjc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_tklur")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_lf2ml")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_tklur")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_xvcjc")
+"texture": ExtResource("2_f70y1")
 }],
 "loop": true,
-"name": &"walk",
-"speed": 5.0
+"name": &"Five",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f70y1")
+}],
+"loop": true,
+"name": &"Four",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6uspi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5nvck")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xk0ge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sl1yj")
+}],
+"loop": true,
+"name": &"One",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_mo5ec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_akbxh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_df0rg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_dd6n0")
+}],
+"loop": true,
+"name": &"Six",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_3l6bp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ow2xk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1up4y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ib0ek")
+}],
+"loop": true,
+"name": &"Three",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_1mtd0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wk747")
+}],
+"loop": true,
+"name": &"Two",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_aj2kg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_bdahh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dbtlw"]
 radius = 27.0
 height = 68.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yccef"]
 
 [node name="CharacterArea2D" type="Area2D"]
 script = ExtResource("1_h662m")
@@ -44,29 +122,31 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8hu7h")
-animation = &"walk"
-autoplay = "walk"
-frame_progress = 0.593946
+animation = &"Three"
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("CapsuleShape2D_dbtlw")
 
-[node name="HealthBar" type="ProgressBar" parent="."]
-modulate = Color(1, 0, 0, 1)
-anchors_preset = 8
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -100.0
-offset_right = 50.0
-offset_bottom = -80.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = 250.0
+offset_right = 100.0
+offset_bottom = 270.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 pivot_offset = Vector2(50, 10)
-theme_override_styles/background = SubResource("StyleBoxEmpty_yccef")
-value = 100.0
+value = 80.0
 rounded = true
-show_percentage = false
+nine_patch_stretch = true
+texture_under = ExtResource("15_yft8p")
+texture_progress = ExtResource("15_yft8p")
+tint_under = Color(0.5, 0.5, 0.5, 1)
+tint_over = Color(0, 0, 0, 0)
+tint_progress = Color(1, 0, 0, 1)

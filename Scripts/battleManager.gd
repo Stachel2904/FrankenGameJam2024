@@ -28,6 +28,7 @@ var _currentStage : int = 0
 func _ready() -> void:
 	print("Enemy: ", _enemyBeat)
 	player.setHealth(Global.levelDict[Global.currentLevel]["PlayerHP"])
+	enemy.initializeAsEnemy(_currentStage)
 	#enemy.setHealth(Global.levelDict[Global.currentLevel]["EnemyHP"])
 	print("Player Health: ", player.getCurrentHealth())
 	print("Enemy Health: ", enemy.getCurrentHealth())
@@ -187,5 +188,5 @@ func _changeStage():
 	enemy.setHealth(Global.levelDict[Global.currentLevel]["EnemyHP"])
 	enemy.setAttackDamage(Global.levelDict[Global.currentLevel]["EnemyDMG"][_currentStage])
 	change_music(Global.levelDict[Global.currentLevel]["Music"][_currentStage])
-	runningBeat.initRunningBeat()
-	
+	runningBeat.initRunningBeat()	
+	enemy.initializeAsEnemy(_currentStage)
