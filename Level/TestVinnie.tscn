@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ca2f6abihpnnl" path="res://Level/BattlesNotes.tscn" id="3_r21lb"]
 [ext_resource type="Texture2D" uid="uid://b2kcilc4le1ua" path="res://Assets/Textures/white_pixel.png" id="5_5yf3n"]
 [ext_resource type="PackedScene" uid="uid://deximm67y71x8" path="res://Level/RunningBeat.tscn" id="6_fly1e"]
-[ext_resource type="AudioStream" uid="uid://dktk7aay07y0k" path="res://Assets/SFX/hit3.mp3" id="8_3asnk"]
+[ext_resource type="AudioStream" uid="uid://djrbku1mvqydj" path="res://Assets/SFX/hit3.wav" id="8_l240f"]
 [ext_resource type="AudioStream" uid="uid://dmr82oyejsgjk" path="res://Assets/SFX/Miss.wav" id="9_h7mmr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dyukt"]
@@ -62,8 +62,8 @@ shape = SubResource("RectangleShape2D_goysu")
 autoplay = true
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_3asnk")
-volume_db = -10.0
+stream = ExtResource("8_l240f")
+volume_db = -8.0
 bus = &"SFX"
 
 [node name="MissSound" type="AudioStreamPlayer" parent="."]
