@@ -1,0 +1,5 @@
+["UP","UP", "DOWN", "DOWN", "LEFT", "RIGHT", "LEFT", "RIGHT"]
+["UP","UP", "DOWN", "DOWN", "LEFT", "RIGHT", "LEFT", "DOWN"]
+["UP","UP", "DOWN", "DOWN"]
+1.927256
+2.043356

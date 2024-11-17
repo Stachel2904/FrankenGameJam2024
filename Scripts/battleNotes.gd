@@ -11,10 +11,7 @@ class_name BattleNotes
 
 #var enemy_beat : Array = ["UP","UP", "DOWN", "DOWN", "LEFT", "RIGHT", "LEFT", "RIGHT"]
 
-var arrowRotation : float = 90.0
-
 var _battleNoteArray : Array = []
-var number : int = 3
 
 var _isInit : bool = false
 
@@ -51,6 +48,14 @@ func initBattleNoteContainer(enemyBeat : Array):
 		_battleNoteArray.append(instance)
 		_battleNoteContainer.add_child(instance)
 	_isInit = true
+
+func resetBattleNoteContainer(enemyBeat : Array):
+	_isInit = false
+	for child in _battleNoteContainer.get_children():
+		child.queue_free()
+	_battleNoteArray.clear()
+	
+	initBattleNoteContainer(enemyBeat)
 	
 func setNotesState(index : int, state : String):
 	if _isInit:
