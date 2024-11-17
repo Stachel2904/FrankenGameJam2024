@@ -10,6 +10,7 @@ var _time : float = (60.0 / Global.levelDict[Global.currentLevel]["BPM"]) / 2
 @onready var BXpos = get_viewport().size.x * 0.5
 @onready var AXpos = get_viewport().size.x * 0.1
 @onready var CXpos = get_viewport().size.x * 0.9  
+@onready var jellyAnim : AnimatedSprite2D = $AnimatedSprite2D
 
 # Called when the node enters the scene tree for the first time.
 #func _ready() -> void:
@@ -66,12 +67,14 @@ func move_to(target: Vector2, duration: float, callback: String) -> void:
 	
 func _on_reach_point_a() -> void:
 	move_to(point_b, time_to_b_from_a, "_on_reach_point_b_from_a")
+	jellyAnim.play("right")
 	
 func _on_reach_point_b_from_a() -> void:
 	move_to(point_c, time_to_c, "_on_reach_point_c")
 	
 func _on_reach_point_c() -> void:
 	move_to(point_b, time_to_b_from_c, "_on_reach_point_b_from_c")
+	jellyAnim.play("left")
 	
 func _on_reach_point_b_from_c() -> void:
 	move_to(point_a, time_to_a, "_on_reach_point_a")
@@ -81,3 +84,7 @@ func initRunningBeat():
 	if tween:
 		tween.kill()
 	move_to(point_a, time_to_a, "_on_reach_point_a")
+	jellyAnim.play("right")
+	
+func ChangeJellyColor(color: Color):
+	jellyAnim.modulate = color

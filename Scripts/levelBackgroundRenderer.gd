@@ -1,9 +1,7 @@
 extends Node
+class_name LevelBackgroundRenderer
 
-func _ready() -> void:
-	ShowLevelBackgroundTextures(RandomNumberGenerator.new().randi_range(0,5))
-
-func ShowLevelBackgroundTextures(level: int) -> void:
+func ShowLevelBackgroundTextures(level: String) -> void:
 	for child in self.get_children():
 		var anim : AnimatedSprite2D = child
-		anim.play(str(level))
+		anim.play(level)

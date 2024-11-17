@@ -6,6 +6,7 @@ class_name BattleManager
 @onready var enemy : Character = $Enemy
 @onready var battleNotes : BattleNotes = $CanvasLayer/BattlesNotes
 @onready var runningBeat : RunningBeat = $RunningBeat
+@onready var levelBackground : LevelBackgroundRenderer = $LevelBackground
 #@onready var classicDayText = "res://Assets/Music/Beat Map/Classic_Day.txt"
 
 
@@ -32,9 +33,10 @@ func _ready() -> void:
 	print("Enemy Health: ", enemy.getCurrentHealth())
 	player.setAttackDamage(Global.levelDict[Global.currentLevel]["PlayerDMG"])
 	#enemy.setAttackDamage(Global.levelDict[Global.currentLevel]["EnemyDMG"][_currentStage])
-	
+	levelBackground.ShowLevelBackgroundTextures(Global.currentLevel)
 	_changeStage()
 	
+	runningBeat.ChangeJellyColor(Color("AA00FF"))
 	_enemyBeat = _createNewEnemyBeat()
 	battleNotes.initBattleNoteContainer(_enemyBeat)
 
@@ -120,6 +122,7 @@ func _compareBeatWithInput(input : String):
 	if _playerBeat[_currentBeat] == input and _isInBoomArea:
 		battleNotes.setNotesState(_currentBeat, "pressed")
 		_currentBeat += 1
+		runningBeat.ChangeJellyColor(Color("AA00FF"))
 		if _currentBeat > _enemyBeat.size() - 1:
 			enemy.modifyHealth(player.getCurrentAttackDamage())
 			_noteSuccess = true
@@ -130,6 +133,7 @@ func _compareBeatWithInput(input : String):
 	else:
 		player.modifyHealth(enemy.getCurrentAttackDamage())
 		_currentBeat = 0
+		runningBeat.ChangeJellyColor(Color(1, 0, 0))
 		_failBeat()
 		#print("False: ", _currentBeat)
 		print("Player HP: ", player.getCurrentHealth())

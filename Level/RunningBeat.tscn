@@ -1,16 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://xxk1xn4y2y67"]
+[gd_scene load_steps=6 format=3 uid="uid://deximm67y71x8"]
 
 [ext_resource type="Script" path="res://Scripts/runningBeat.gd" id="1_7koht"]
-[ext_resource type="Texture2D" uid="uid://b2kcilc4le1ua" path="res://Assets/Textures/white_pixel.png" id="1_l6air"]
+[ext_resource type="Texture2D" uid="uid://bmaptpvlx6p88" path="res://Assets/Textures/UI-Textures/DJOB_Jelly.png" id="2_6nb80"]
+[ext_resource type="Texture2D" uid="uid://dqpkrxnkrjwpj" path="res://Assets/Textures/UI-Textures/DJOB_Jelly_flipped.png" id="3_1capu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ripi4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_l6air")
+"texture": ExtResource("2_6nb80")
 }],
 "loop": true,
-"name": &"default",
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1capu")
+}],
+"loop": true,
+"name": &"right",
 "speed": 5.0
 }]
 
@@ -21,8 +30,9 @@ size = Vector2(1.00391, 1.00391)
 script = ExtResource("1_7koht")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(128, 128)
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_ripi4")
+animation = &"right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(128, 128)
