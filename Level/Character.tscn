@@ -165,6 +165,6 @@ rounded = true
 nine_patch_stretch = true
 texture_under = ExtResource("15_yft8p")
 texture_progress = ExtResource("15_yft8p")
-tint_under = Color(0.5, 0.5, 0.5, 1)
+tint_under = Color(0, 0, 0, 1)
 tint_over = Color(0, 0, 0, 0)
 tint_progress = Color(1, 0, 0, 1)
