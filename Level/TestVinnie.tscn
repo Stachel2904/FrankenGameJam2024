@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmw7q26y8kpq7"]
+[gd_scene load_steps=8 format=3 uid="uid://bmw7q26y8kpq7"]
 
 [ext_resource type="PackedScene" uid="uid://b15si7e6dq1gh" path="res://Level/Character.tscn" id="1_m37bf"]
 [ext_resource type="Script" path="res://Scripts/battleManager.gd" id="1_o1ju0"]
 [ext_resource type="PackedScene" uid="uid://ca2f6abihpnnl" path="res://Level/BattlesNotes.tscn" id="3_r21lb"]
 [ext_resource type="Texture2D" uid="uid://b2kcilc4le1ua" path="res://Assets/Textures/white_pixel.png" id="5_5yf3n"]
 [ext_resource type="PackedScene" uid="uid://xxk1xn4y2y67" path="res://Level/RunningBeat.tscn" id="6_fly1e"]
-[ext_resource type="AudioStream" uid="uid://d00quxffax1xq" path="res://Assets/Music/Tropical_House_Morning.ogg" id="6_q5bww"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dyukt"]
 animations = [{
@@ -48,7 +47,6 @@ shape = SubResource("RectangleShape2D_goysu")
 [node name="RunningBeat" parent="." instance=ExtResource("6_fly1e")]
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_q5bww")
 autoplay = true
 
 [connection signal="area_entered" from="BoomArea" to="." method="_on_boom_area_area_entered"]

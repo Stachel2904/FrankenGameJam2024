@@ -5,49 +5,38 @@ class_name BattleManager
 @onready var player : Character = $Player
 @onready var enemy : Character = $Enemy
 @onready var battleNotes : BattleNotes = $CanvasLayer/BattlesNotes
-@onready var classicDayText = "res://Assets/Music/Beat Map/Classic_Day.txt"
+@onready var runningBeat : RunningBeat = $RunningBeat
+#@onready var classicDayText = "res://Assets/Music/Beat Map/Classic_Day.txt"
 
 
 # Player Input Array for rhythm game aspect
 var _playerBeat : Array = []
 # ["UP","UP", "DOWN", "DOWN", "LEFT", "RIGHT", "LEFT", "RIGHT", "B", "A"]
-
-
-var enemyBeat : Array = ["UP","UP", "DOWN", "DOWN", "LEFT", "RIGHT", "LEFT", "RIGHT"]
-
-#@export var playerHP : int = 100
-#@export var enemyHP : int = 100
-#@export var playerDmg : int = -10
-#@export var enemyDmg : int = -20
+var _enemyBeat : Array = ["UP","UP", "DOWN", "DOWN", "LEFT", "RIGHT", "LEFT", "RIGHT"]
 
 var _currentBeat : int = 0
 var _noteSuccess : bool = false
 var _isInBoomArea : bool = false
-
-# Maximum length of beat matched to enemy beat
-#var max_beat_length : int = enemyBeat.size()
+var _currentStage : int = 0
 
 # BEAT DINGSDABUNGSTA
-#@export var beatTolerance : float = 0.2
 @onready var beatSong : AudioStreamPlayer = $LevelMusic
-# array of beats (in seconds)
-#@export var beatTimings : Array[float] = [0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0]
-#var bpm : int = 120
-#var spb : float = 60.0 / bpm
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("Enemy: ", enemyBeat)
+	print("Enemy: ", _enemyBeat)
 	player.setHealth(Global.levelDict[Global.currentLevel]["PlayerHP"])
-	enemy.setHealth(Global.levelDict[Global.currentLevel]["EnemyHP"])
+	#enemy.setHealth(Global.levelDict[Global.currentLevel]["EnemyHP"])
 	print("Player Health: ", player.getCurrentHealth())
 	print("Enemy Health: ", enemy.getCurrentHealth())
 	player.setAttackDamage(Global.levelDict[Global.currentLevel]["PlayerDMG"])
-	enemy.setAttackDamage(Global.levelDict[Global.currentLevel]["EnemyDMG"])
+	#enemy.setAttackDamage(Global.levelDict[Global.currentLevel]["EnemyDMG"][_currentStage])
 	
-	enemyBeat = _createNewEnemyBeat()
-	battleNotes.initBattleNoteContainer(enemyBeat)
+	_changeStage()
+	
+	_enemyBeat = _createNewEnemyBeat()
+	battleNotes.initBattleNoteContainer(_enemyBeat)
 
 func _process(delta: float) -> void:
 	_handleNoteInput()
@@ -59,7 +48,7 @@ func _process(delta: float) -> void:
 # add input to array
 # TODO: Make it visual like HellDivers2, White Arrows become highlighted for each correct beat press
 func _addToBeat(action: String):
-	if _playerBeat.size() < enemyBeat.size():
+	if _playerBeat.size() < _enemyBeat.size():
 		_playerBeat.append(action)
 		print("Appended Button: ", action)
 		print("Player Beat Array: ", _playerBeat)
@@ -71,7 +60,7 @@ func _checkNote():
 		battleNotes.resetStates("default")
 	
 	if not _playerBeat.is_empty():
-		match enemyBeat[_currentBeat]:
+		match _enemyBeat[_currentBeat]:
 			"UP":
 				_compareBeatWithInput("UP")
 			"DOWN":
@@ -103,11 +92,20 @@ func _failBeat():
 		_playerBeat.clear()
 		
 func _resetBeat():
-	enemyBeat = _createNewEnemyBeat()
-	battleNotes.resetBattleNoteContainer(enemyBeat)
+	_enemyBeat = _createNewEnemyBeat()
+	battleNotes.resetBattleNoteContainer(_enemyBeat)
 	_currentBeat = 0
 	_noteSuccess = false
 	_playerBeat.clear()
+	
+	if enemy.getCurrentHealth() == 0:
+		_currentStage += 1
+				
+		if _currentStage == 3:
+			print("WE DID IT!")
+			_currentStage -= 1
+		
+		_changeStage()
 	
 
 # TODO: checkBeatSlider - add good/nice/perfect if inside area2d, add miss if outside area2d
@@ -118,11 +116,11 @@ func _compareBeatWithInput(input : String):
 	if _playerBeat[_currentBeat] == input and _isInBoomArea:
 		battleNotes.setNotesState(_currentBeat, "pressed")
 		_currentBeat += 1
-		if _currentBeat > enemyBeat.size() - 1:
+		if _currentBeat > _enemyBeat.size() - 1:
 			enemy.modifyHealth(player.getCurrentAttackDamage())
 			_noteSuccess = true
 			_resetBeat()
-			print("YOU DID IT!")
+			#print("YOU DID IT!")
 			print("Enemy HP: ", enemy.getCurrentHealth())
 		#print("Correct: ", _currentBeat)
 	else:
@@ -164,3 +162,21 @@ func _createNewEnemyBeat() -> Array:
 	var rand = RandomNumberGenerator.new()
 	rand.randomize()
 	return Global.enemyBeats[rand.randi_range(0, Global.enemyBeats.size() - 1)]
+
+func change_music(new_music_path: String):
+	# Load the new music file as an AudioStream
+	var new_music_stream = ResourceLoader.load(new_music_path) as AudioStream
+	if new_music_stream:
+		#$AudioStreamPlayer.stop()  # Stop the current music
+		beatSong.stream = new_music_stream  # Assign the new stream
+		print(new_music_path)
+		#print(beatSong.stream)
+		beatSong.play()  # Play the new music
+	else:
+		print("Failed to load audio stream from path:", new_music_path)
+
+func _changeStage():
+	enemy.setHealth(Global.levelDict[Global.currentLevel]["EnemyHP"])
+	enemy.setAttackDamage(Global.levelDict[Global.currentLevel]["EnemyDMG"][_currentStage])
+	change_music(Global.levelDict[Global.currentLevel]["Music"][_currentStage])
+	runningBeat.initRunningBeat()

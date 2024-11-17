@@ -48,56 +48,62 @@ var currentLevel = "One"
 var levelDict = {
 		"One" : {
 			"Name": "Level 1", 
-			"Music": "PATH", 
+			"Music": ["res://Assets/Music/Classic_Day.ogg", "res://Assets/Music/Classic_Morning.ogg", "res://Assets/Music/Classic_Night.ogg"],
+			"BPM": 130,
 			"PlayerHP": 100,
 			"EnemyHP": 100,
-			"PlayerDMG": -10,
-			"EnemyDMG": -20,
+			"PlayerDMG": -50,
+			"EnemyDMG": [-5, -10, -15],
 			"Completed": false
 		},
 		"Two" : {
 			"Name": "Level 2", 
 			"Music": "PATH", 
+			"BPM": 123,
 			"PlayerHP": 100,
 			"EnemyHP": 100,
 			"PlayerDMG": -10,
-			"EnemyDMG": -20,
+			"EnemyDMG": [-5, -10, -15],
 			"Completed": false
 		},
 		"Three" : {
 			"Name": "Level 3", 
 			"Music": "PATH", 
+			"BPM": 128,
 			"PlayerHP": 100,
 			"EnemyHP": 100,
 			"PlayerDMG": -10,
-			"EnemyDMG": -20,
+			"EnemyDMG": [-5, -10, -15],
 			"Completed": false
 		},
 		"Four" : {
 			"Name": "Level 4", 
 			"Music": "PATH", 
+			"BPM": 125,
 			"PlayerHP": 100,
 			"EnemyHP": 100,
 			"PlayerDMG": -10,
-			"EnemyDMG": -20,
+			"EnemyDMG": [-5, -10, -15],
 			"Completed": false
 		},
 		"Five" : {
 			"Name": "Level 5", 
 			"Music": "PATH", 
+			"BPM": 127,
 			"PlayerHP": 100,
 			"EnemyHP": 100,
 			"PlayerDMG": -10,
-			"EnemyDMG": -20,
+			"EnemyDMG": [-5, -10, -15],
 			"Completed": false
 		},
 		"Six" : {
 			"Name": "Level 6", 
 			"Music": "PATH", 
+			"BPM": 116,
 			"PlayerHP": 100,
 			"EnemyHP": 100,
 			"PlayerDMG": -10,
-			"EnemyDMG": -20,
+			"EnemyDMG": [-5, -10, -15],
 			"Completed": false
 		}
 	}
