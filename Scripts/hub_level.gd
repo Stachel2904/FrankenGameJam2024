@@ -25,12 +25,23 @@ extends Node2D
 	$CenterWrapper/Background/Bubbles/Crowd6
 	]
 
+var _unmutedPlaylist : Array = [
+	"res://Assets/Music/HubSound/NDD1.mp3",
+	"res://Assets/Music/HubSound/NDD2.mp3",
+	"res://Assets/Music/HubSound/NDD3.mp3",
+	"res://Assets/Music/HubSound/NDD4.mp3",
+	"res://Assets/Music/HubSound/NDD5.mp3",
+	"res://Assets/Music/HubSound/NDD6.mp3",
+]
+
 @onready var _consoleRenderer : AnimatedSprite2D = $CenterWrapper/DJ_Console
 @onready var _backgroundRenderer : AnimatedSprite2D = $CenterWrapper/Background
 @onready var _tentacle : Node2D = $CenterWrapper/DJ_Console/Tentacle
 @onready var _exitBtn : Button = $CenterWrapper/Background/DjobClubDiscoball/Button2
 @onready var _creditsBtn : Button = $Button
 @onready var _creditsNode : Node2D = $Credits
+
+@onready var _hubMusic : AudioStreamPlayer = $HubMusic
 
 @onready var _tentacleTarget : Vector2 = Vector2(0, 10)
 @onready var _tentacleXPositions = [-15, -9, -3, 3, 9, 15]
@@ -64,6 +75,11 @@ func _refreshRenderStates() -> void:
 			currentLevelButton.modulate = Color(0,1,0)
 			currentLevelState.modulate = Color(0,1,0)
 			currentLevelCrowd.visible = true
+			
+			_hubMusic.stop()
+			var stream = ResourceLoader.load(_unmutedPlaylist[i])
+			_hubMusic.stream.set_list_stream(i, stream)
+			_hubMusic.play()
 		else:
 			currentLevelButton.modulate = Color(1,0,0)
 			currentLevelState.modulate = Color(1,0,0)
