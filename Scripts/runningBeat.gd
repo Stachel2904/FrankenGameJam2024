@@ -6,7 +6,7 @@ class_name RunningBeat
 var _time : float = (60.0 / Global.levelDict[Global.currentLevel]["BPM"]) / 2
 #0.46875/2
 
-@onready var Ypos = get_viewport().size.y * 0.85
+@onready var Ypos = get_viewport().size.y * 0.80
 @onready var BXpos = get_viewport().size.x * 0.5
 @onready var AXpos = get_viewport().size.x * 0.1
 @onready var CXpos = get_viewport().size.x * 0.9  
