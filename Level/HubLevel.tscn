@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://b6e6h8o2eq11j"]
+[gd_scene load_steps=46 format=3 uid="uid://b6e6h8o2eq11j"]
 
 [ext_resource type="Script" path="res://Scripts/hub_level.gd" id="1_1m54h"]
 [ext_resource type="Texture2D" uid="uid://chlojcj6w0e8k" path="res://Assets/Textures/Level-Textures/DJOB_DjConsole.png" id="1_bhbcg"]
@@ -11,6 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://cl73b6swvpg5p" path="res://Assets/Textures/gray_pixel.png" id="6_n15fr"]
 [ext_resource type="Texture2D" uid="uid://depywlib5biw" path="res://Assets/Textures/Level-Textures/DJOB_select.png" id="7_lkij0"]
 [ext_resource type="PackedScene" uid="uid://cefnjlpw318rj" path="res://Level/Credits.tscn" id="11_m5ycv"]
+[ext_resource type="AudioStream" uid="uid://cdownav2vm6ww" path="res://Assets/Music/HubSound/NDD1_mute.mp3" id="12_ea8dd"]
+[ext_resource type="AudioStream" uid="uid://bfc5ls6mrej58" path="res://Assets/Music/HubSound/NDD2_mute.mp3" id="13_pw2f4"]
+[ext_resource type="AudioStream" uid="uid://txw725aphkhf" path="res://Assets/Music/HubSound/NDD3_mute.mp3" id="14_6qfx3"]
+[ext_resource type="AudioStream" uid="uid://cecr0ywqkh7rd" path="res://Assets/Music/HubSound/NDD4_mute.mp3" id="15_fisbs"]
+[ext_resource type="AudioStream" uid="uid://ou0fb6j4opaq" path="res://Assets/Music/HubSound/NDD5_mute.mp3" id="16_clmeb"]
+[ext_resource type="AudioStream" uid="uid://cyh8x1o3w4kpc" path="res://Assets/Music/HubSound/NDD6_mute.mp3" id="17_0uskn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7mbqy"]
 atlas = ExtResource("2_mmw0i")
@@ -203,6 +209,15 @@ animations = [{
 "name": &"idle",
 "speed": 2.0
 }]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_erj03"]
+stream_count = 6
+stream_0 = ExtResource("12_ea8dd")
+stream_1 = ExtResource("13_pw2f4")
+stream_2 = ExtResource("14_6qfx3")
+stream_3 = ExtResource("15_fisbs")
+stream_4 = ExtResource("16_clmeb")
+stream_5 = ExtResource("17_0uskn")
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_1m54h")
@@ -582,3 +597,7 @@ text = "Credits"
 [node name="Credits" parent="." instance=ExtResource("11_m5ycv")]
 visible = false
 z_index = 5
+
+[node name="HubMusic" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPlaylist_erj03")
+autoplay = true
