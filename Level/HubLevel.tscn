@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://b6e6h8o2eq11j"]
+[gd_scene load_steps=47 format=3 uid="uid://b6e6h8o2eq11j"]
 
 [ext_resource type="Script" path="res://Scripts/hub_level.gd" id="1_1m54h"]
 [ext_resource type="Texture2D" uid="uid://chlojcj6w0e8k" path="res://Assets/Textures/Level-Textures/DJOB_DjConsole.png" id="1_bhbcg"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://depywlib5biw" path="res://Assets/Textures/Level-Textures/DJOB_select.png" id="7_lkij0"]
 [ext_resource type="PackedScene" uid="uid://cefnjlpw318rj" path="res://Level/Credits.tscn" id="11_m5ycv"]
 [ext_resource type="AudioStream" uid="uid://cdownav2vm6ww" path="res://Assets/Music/HubSound/NDD1_mute.mp3" id="12_ea8dd"]
+[ext_resource type="PackedScene" uid="uid://babaarrxg2582" path="res://Level/Intro.tscn" id="12_fvb4v"]
 [ext_resource type="AudioStream" uid="uid://bfc5ls6mrej58" path="res://Assets/Music/HubSound/NDD2_mute.mp3" id="13_pw2f4"]
 [ext_resource type="AudioStream" uid="uid://txw725aphkhf" path="res://Assets/Music/HubSound/NDD3_mute.mp3" id="14_6qfx3"]
 [ext_resource type="AudioStream" uid="uid://cecr0ywqkh7rd" path="res://Assets/Music/HubSound/NDD4_mute.mp3" id="15_fisbs"]
@@ -597,6 +598,8 @@ text = "Credits"
 [node name="Credits" parent="." instance=ExtResource("11_m5ycv")]
 visible = false
 z_index = 5
+
+[node name="Intro" parent="." instance=ExtResource("12_fvb4v")]
 
 [node name="HubMusic" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamPlaylist_erj03")

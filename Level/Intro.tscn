@@ -2,46 +2,38 @@
 
 [ext_resource type="Script" path="res://Scripts/credits.gd" id="1_8ri1q"]
 
-[node name="Credits" type="Node2D"]
+[node name="Intro" type="Node2D"]
 script = ExtResource("1_8ri1q")
 
 [node name="Button" type="Button" parent="."]
+offset_top = 721.0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
 [node name="Panel" type="Panel" parent="Button"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -400.0
-offset_right = 250.0
-offset_bottom = 400.0
+anchor_bottom = 1.0
+offset_left = -750.0
+offset_top = -330.0
+offset_right = 750.0
+offset_bottom = -30.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Button/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 500.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
-text = "[center][u][b][font_size=100]Credits[/font_size][/b][/u][/center]
-[center][u][font_size=50]Developer[/font_size][/u][/center]
-[center][font_size=30]Sascha Töpfer[/font_size][/center]
-[center][font_size=30]Jan-Vincent Mock[/font_size][/center]
-[center][font_size=30]Jenny Gia Linh Le[/font_size][/center]
-[center][font_size=30]Devin Sorth[/font_size][/center]
-
-[center][u][font_size=50]Engine[/font_size][/u][/center]
-[center][font_size=30]Godot[/font_size][/center]
-
-[center][u][font_size=50]Other Tools[/font_size][/u][/center]
-[center][font_size=30]Suno AI[/font_size][/center]
-[center][font_size=30]Comfy UI[/font_size][/center]"
+text = "[font_size=35]Plötzlich verstummt die Musik im Club. DJ Octo Bubble sieht schockiert zu, wie sein  letzter Song in sechs schimmernde Fragmente zerbricht und in verschiedene Dimensionen verschwindet. „Wir müssen die Songteile finden und vereinen!“, ruft er. Deine Mission: Betrete die musikalischen Welten, stelle dich den Herausforderungen und bringe den Beat zurück in den Club!"
