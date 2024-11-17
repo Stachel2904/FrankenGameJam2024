@@ -75,7 +75,11 @@ func _ready() -> void:
 func start_next_timer():
 	_musicTimer.wait_time = seconds_array[current_index]
 	_musicTimer.start()
+	for i in _levelStates.size():
+		_levelStates[i].modulate = Color(0,0,0)
 	current_index = (current_index + 1) % seconds_array.size()
+	_levelStates[current_index].modulate = Color(1,0.5,0)
+	
 	print("=======================" , current_index)
 
 func _on_Timer_timeout():
@@ -92,11 +96,9 @@ func _refreshRenderStates() -> void:
 	var allLevelCompleted : bool = true
 	for i in _levelButtons.size():
 		var currentLevelButton : TextureButton = _levelButtons[i]
-		var currentLevelState : Sprite2D = _levelStates[i]
 		var currentLevelCrowd : CanvasItem = _levelCrowds[i]
 		if(_isLevelUnlocked(i)):
 			currentLevelButton.modulate = Color(0,1,0)
-			currentLevelState.modulate = Color(0,1,0)
 			currentLevelCrowd.visible = true
 			
 			_hubMusic.stop()
@@ -109,7 +111,6 @@ func _refreshRenderStates() -> void:
 			
 		else:
 			currentLevelButton.modulate = Color(1,0,0)
-			currentLevelState.modulate = Color(1,0,0)
 			currentLevelCrowd.visible = false
 			allLevelCompleted = false
 	

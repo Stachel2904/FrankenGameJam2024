@@ -1,10 +1,10 @@
-[gd_scene load_steps=48 format=3 uid="uid://b6e6h8o2eq11j"]
+[gd_scene load_steps=57 format=3 uid="uid://b6e6h8o2eq11j"]
 
 [ext_resource type="Script" path="res://Scripts/hub_level.gd" id="1_1m54h"]
 [ext_resource type="Texture2D" uid="uid://chlojcj6w0e8k" path="res://Assets/Textures/Level-Textures/DJOB_DjConsole.png" id="1_bhbcg"]
 [ext_resource type="Texture2D" uid="uid://b2kcilc4le1ua" path="res://Assets/Textures/white_pixel.png" id="2_52xw1"]
 [ext_resource type="Texture2D" uid="uid://ducko51f04hk7" path="res://Assets/Textures/Background/DJOB_Club_BG.png" id="2_mmw0i"]
-[ext_resource type="Texture2D" uid="uid://cnjmfqw72gt2p" path="res://Assets/Textures/Background/DJOB_Club_Discoball.png" id="3_l5oit"]
+[ext_resource type="Texture2D" uid="uid://dvn4tf3eiusy4" path="res://Assets/Textures/Background/Discoo.png" id="3_wj06h"]
 [ext_resource type="Texture2D" uid="uid://rvij8fm7ptgm" path="res://Assets/Textures/Level-Textures/DJOB_BadBubble.png" id="4_phxu1"]
 [ext_resource type="Script" path="res://Scripts/bubbleRenderer.gd" id="5_ey2o3"]
 [ext_resource type="Texture2D" uid="uid://bwn73vj4rintk" path="res://Assets/Textures/black_pixel.png" id="5_scwcc"]
@@ -140,6 +140,70 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uaic0"]
+atlas = ExtResource("3_wj06h")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pwcr"]
+atlas = ExtResource("3_wj06h")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t25bb"]
+atlas = ExtResource("3_wj06h")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vnja"]
+atlas = ExtResource("3_wj06h")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c68yi"]
+atlas = ExtResource("3_wj06h")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqwnw"]
+atlas = ExtResource("3_wj06h")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7oh6"]
+atlas = ExtResource("3_wj06h")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct788"]
+atlas = ExtResource("3_wj06h")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l6i8v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uaic0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pwcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t25bb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vnja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c68yi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqwnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7oh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ct788")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_jjvwf"]
 atlas = ExtResource("4_phxu1")
 region = Rect2(0, 0, 32, 32)
@@ -242,19 +306,21 @@ scale = Vector2(20, 10)
 sprite_frames = SubResource("SpriteFrames_dxbj5")
 autoplay = "default"
 
-[node name="DjobClubDiscoball" type="Sprite2D" parent="CenterWrapper/Background"]
+[node name="DjobClubDiscoball" type="AnimatedSprite2D" parent="CenterWrapper/Background"]
 z_index = 2
+position = Vector2(0, -30)
 scale = Vector2(0.5, 1)
-texture = ExtResource("3_l5oit")
+sprite_frames = SubResource("SpriteFrames_l6i8v")
+autoplay = "default"
 
 [node name="Button2" type="Button" parent="CenterWrapper/Background/DjobClubDiscoball"]
 modulate = Color(1, 0, 0, 1)
 self_modulate = Color(1, 0, 0, 1)
 z_index = -1
 offset_left = -13.0
-offset_top = -48.0
+offset_top = -13.0
 offset_right = 13.0
-offset_bottom = -22.0
+offset_bottom = 13.0
 theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
 theme_override_colors/icon_focus_color = Color(0, 0, 0, 0.533333)
 theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
