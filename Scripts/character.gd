@@ -2,7 +2,8 @@ extends Area2D
 
 class_name Character
 
-@onready var _healthBar : ProgressBar = $HealthBar
+@onready var _healthBar : TextureProgressBar = $HealthBar
+@onready var _anim : AnimatedSprite2D = $AnimatedSprite2D
 
 var _characterHealth : int = 100
 var _attackDamage : int = 10
@@ -48,3 +49,15 @@ func setAttackDamage(newAttackDamage : int) -> int:
 func modifyAttackDamage(attackDamageModifier: int) -> int:
 	_attackDamage += attackDamageModifier
 	return _attackDamage
+	
+func initializeAsEnemy(stage : int):
+	_anim.play(Global.currentLevel)
+	if(stage == 0):
+		_anim.scale = Vector2(0.5, 0.5)
+		_anim.position = Vector2(0, 128)
+	elif(stage == 2):
+		_anim.scale = Vector2(2, 2)
+		_anim.position = Vector2(0, -200)
+	else:
+		_anim.scale = Vector2.ONE
+		_anim.position = Vector2(0, 0)

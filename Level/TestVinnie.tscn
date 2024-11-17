@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b15si7e6dq1gh" path="res://Level/Character.tscn" id="1_m37bf"]
 [ext_resource type="Script" path="res://Scripts/battleManager.gd" id="1_o1ju0"]
-[ext_resource type="Texture2D" uid="uid://ducko51f04hk7" path="res://Assets/Textures/Background/DJOB_Club_BG.png" id="2_r0fs2"]
+[ext_resource type="Texture2D" uid="uid://bcmr0li2dj41j" path="res://Assets/Textures/Level-Textures/DJOB_Club_BG_empty.png" id="2_0jcjq"]
 [ext_resource type="PackedScene" uid="uid://cbwjht5wmyunl" path="res://Level/LevelBackground.tscn" id="3_fl3lp"]
 [ext_resource type="PackedScene" uid="uid://ca2f6abihpnnl" path="res://Level/BattlesNotes.tscn" id="3_r21lb"]
 [ext_resource type="Texture2D" uid="uid://b2kcilc4le1ua" path="res://Assets/Textures/white_pixel.png" id="5_5yf3n"]
@@ -26,12 +26,12 @@ size = Vector2(1.33594, 1.78125)
 script = ExtResource("1_o1ju0")
 
 [node name="StaticBG" type="Sprite2D" parent="."]
-position = Vector2(-317, -101)
+position = Vector2(960, 540)
 scale = Vector2(20, 10)
-texture = ExtResource("2_r0fs2")
+texture = ExtResource("2_0jcjq")
 
 [node name="LevelBackground" parent="." instance=ExtResource("3_fl3lp")]
-position = Vector2(960, 540)
+position = Vector2(960, 445)
 
 [node name="Player" parent="." instance=ExtResource("1_m37bf")]
 position = Vector2(294, 570)
